@@ -20,11 +20,12 @@ mkdir fastqc_out
 fastqc -t 4 raw_data/* -o fastqc_out/
 ```
 ##trims the contactenated reads for adapters using Trimmomatic
+```sh
 java -jar /project2/mlcoleman/src/trimmomatic/Trimmomatic-0.35/trimmomatic-0.35.jar PE -phred33 \
 /scratch/midway2/pflynn/15/15A_concatenated_R1.fastq.gz /scratch/midway2/pflynn/15/15A_concatenated_R2.fastq.gz  \
 /scratch/midway2/pflynn/15/15_pe1.fq /scratch/midway2/pflynn/15/15_unp1.fq /scratch/midway2/pflynn/15/15_pe2.fq /scratch/midway2/pflynn/15/15_unp2.fq \
 ILLUMINACLIP:/project2/mlcoleman/src/trimmomatic/Trimmomatic-0.35/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
-
+```
 ##builds ant species specific genome database in bowtie2
 ```sh
 bowtie2-build /scratch/midway2/pflynn/genomes/D_quadriceps.fna /scratch/midway2/pflynn/genomes/Dquad
