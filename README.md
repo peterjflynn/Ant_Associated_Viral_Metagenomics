@@ -31,7 +31,7 @@ ILLUMINACLIP:/project2/mlcoleman/src/trimmomatic/Trimmomatic-0.35/adapters/TruSe
 bowtie2-build /scratch/midway2/pflynn/genomes/D_quadriceps.fna /scratch/midway2/pflynn/genomes/Dquad
 
 ```
-## builds ant species specific genome database in bowtie2
+### map ant genome to paired reads, unmapped reads are carried through to the assembly
 ```sh
 bowtie2 -t -x /scratch/midway2/pflynn/genomes/Dquad -1 /scratch/midway2/pflynn/15/15_pe1.fq  -2 /scratch/midway2/pflynn/15/15_pe2.fq --un-conc /scratch/midway2/pflynn/15/15_conc_unmapped.fastq --al-conc /scratch/midway2/pflynn/15/15_conc_mapped.sam
 
