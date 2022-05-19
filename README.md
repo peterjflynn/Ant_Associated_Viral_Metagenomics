@@ -1,15 +1,16 @@
-# Viral_Metagenomics_Ants
+# Ant Associated Viral Metagenomics Workflow
 ## Dependencies 
-Java
-Perl
-Bowtie2
-samtools
-Spades 3.14.0
-trimmomatic-0.35 
+Java <br>
+Perl <br>
+Bowtie2 <br>
+samtools <br>
+trimmomatic-0.35 <br>
+Spades 3.14.0 <br>
+CheckV <br>
 
-## Workflow
+## Bioinformatics Workflow
 This workflow starts with raw paired-end HiSeq data in demultiplexed FASTQ formated assumed to be located within a folder called raw_seq
-
+Example for one sample
 1. Concatenates the reads from multiple lanes of sequencing together  
 ```sh
 cat /scratch/midway2/pflynn/15/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L004_R1.fastq.gz /scratch/midway2/pflynn/15/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L005_R1.fastq.gz /scratch/midway2/pflynn/15/15A_TTGCCTAG-TAAGTGGT-AHWYVLBBXX_L005_R1.fastq.gz > /scratch/midway2/pflynn/15/15A_concatenated_R1.fastq.gz
@@ -50,8 +51,17 @@ perl /scratch/midway2/pflynn/removesmalls.pl 300 /scratch/midway2/pflynn/15/15_s
 ```sh
 bowtie2-build /scratch/midway2/pflynn/15/15_scaffolds_300.fasta /scratch/midway2/pflynn/15/15_scaffolds_300.fasta
 
-
 bowtie2 -p 12 -x /scratch/midway2/pflynn/15/15_scaffolds_300.fasta -1 /scratch/midway2/pflynn/15/15_pe1.fq  -2 /scratch/midway2/pflynn/15/15_pe2.fq -S /scratch/midway2/pflynn/15/15_reads.map.sam
 
 samtools faidx /scratch/midway2/pflynn/15/15_scaffolds_300.fasta
 ```
+## Scaffolds workflow 
+Combine all scaffolds together 
+
+9. CD hit for scaffolds i.e. 1_scaffolds_300.fasta
+
+for file in /Scaffolds_CDHIT/*.fasta;
+do
+echo "$file";
+/cd-hit-v4.8.1-2019-0228/cd-hit -i "$file" -o "${file//_merged.fasta}"  -aS 0.95 -c 0.95 -n 5 -d 0;
+done
