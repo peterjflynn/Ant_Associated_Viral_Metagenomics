@@ -59,9 +59,10 @@ samtools faidx /scratch/midway2/pflynn/15/15_scaffolds_300.fasta
 Combine all scaffolds together 
 
 9. CD hit for scaffolds i.e. 1_scaffolds_300.fasta
-
-for file in /Scaffolds_CDHIT/*.fasta;
+```sh
+for file in /Scaffolds_CDHIT/*.fasta;
 do
 echo "$file";
 /cd-hit-v4.8.1-2019-0228/cd-hit -i "$file" -o "${file//_merged.fasta}"  -aS 0.95 -c 0.95 -n 5 -d 0;
 done
+```
