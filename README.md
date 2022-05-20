@@ -2,12 +2,13 @@
 ## Dependencies 
 Java <br>
 Perl <br>
-Bowtie2 <br>
-samtools <br>
-trimmomatic-0.35 <br>
+[Bowtie2] (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) <br>
+Samtools <br>
+Trimmomatic-0.35 <br>
 Spades 3.14.0 <br>
 CheckV <br>
 CD Hit <br>
+Virsorter2 Note: used CyVerse version of VirSorter2 <br>
 
 ## Bioinformatics Workflow
 This workflow starts with raw paired-end HiSeq data in demultiplexed FASTQ formated assumed to be located within a folder called raw_seq
@@ -56,7 +57,6 @@ bowtie2 -p 12 -x /scratch/midway2/pflynn/15/15_scaffolds_300.fasta -1 /scratch/m
 
 samtools faidx /scratch/midway2/pflynn/15/15_scaffolds_300.fasta
 ```
-## Scaffolds workflow 
 
 9. CD hit for scaffolds i.e. 1_scaffolds_300.fasta
 ```sh
@@ -74,7 +74,7 @@ done
 
 ```
 
-10. concatenate all hits together
+10. concatenate all scaffolds together
 ```sh
 cat * > all_contigs_cdhit_decon.fasta
 ```
@@ -86,27 +86,27 @@ cat * > all_contigs_cdhit_decon.fasta
 ```sh
 perl -pe '/^>/ ? print "\n" : chomp’  /all_contigs_cdhit_decon_sorted.fasta >  /all_contigs_cdhit_decon_sorted_single.fasta
 ```
-# Virsorter2  
+### Virsorter2  
 13. Use VirSorter2 version 2.1.0 to identify further viral contigs from your cross-assembled samples. I found that the CyVerse version of VirSorter2 worked better than the command line versions. Did not change any parameters Output file is: virsorter_contigs.fa
 
-#Decontaminate
-database with taxonomy for decontamination, these files are several gb, but you can download them to your server from NCBI. This tutorial is helpful: https://andreirozanski.com/2020/01/03/building-a-diamond-db-using-refseq-protein/
+#### Decontaminate
+14. database with taxonomy for decontamination, these files are several gb, but you can download them to your server from NCBI. This tutorial is helpful: https://andreirozanski.com/2020/01/03/building-a-diamond-db-using-refseq-protein/
 
 ```sh
 ~/diamond/diamond makedb --in ~/23_scaffolds_300.fasta_cdhit.fasta --db ~/decontamination_db --taxonmap ~/nr/prot.accession2taxid.gz --taxonnodes ~/nr/nodes.dmp --taxonnames  ~/nr/names.dmp --threads 20 &
 ```
-decontamination
+15. decontamination
 ```sh
 ~/diamond/diamond makedb --in ~/decontamination/23_scaffolds_300.fasta_cdhit.fasta -d ~/decontamination/decontamination_db1
 makeblastdb -in ~/decontamination/23_scaffolds_300.fasta_cdhit.fasta -out ~/Decontamination/Decon -dbtype nucl -input_type fasta
 ```
 
-blastn evalue 1e-5 outfmt 6 to decontaminate contigs 300 with 300
+16. blastn evalue 1e-5 outfmt 6 to decontaminate contigs 300 with 300
 ```sh
 blastn -num_threads "40" -db ~/Decontamination/Decon -outfmt "6" -max_target_seqs "1" -evalue "1e-5" -max_hsps 1  -out ~/decontamination/contaminated_contigs_300.out -query ~/decontamination/all_contigs_cdhit_decon_sorted.fasta &
 ```
 
-single line fasta
+17. single line fasta
 ```sh
 perl -pe '$. > 1 and /^>/ ? print "\n" : chomp' all_contigs_cdhit_decon_sorted.fasta > all_contigs_cdhit_decon_sorted_single.fasta
 ```
@@ -114,57 +114,55 @@ delete contaminated sequences from contig file
 ```sh
 awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' all_contigs_cdhit_decon_sorted_single.fasta > all_contigs_300_decontam_cdhit_single.fasta
 ```
-blastx with contig list on RefSeq database
+18. blastx with contig list on RefSeq database
 ```sh
 ~/diamond/diamond blastx -p "40" -d ~/refseq_protein_vir_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o ~/300_blast/RefSeq_blastx_contigs_300.out -q ~/300_blast/all_contigs_300_decontam_cdhit_single.fasta &
 ```
-extract viral fasta sequences from  blastx refseq results (to make txt file need to do this in text wrangler)
+19. extract viral fasta sequences from  blastx refseq results (to make txt file need to do this in text wrangler)
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/300_blast/RefSeq_viral_contigs.txt ~/300_blast/all_contigs_300_decontam_cdhit_single.fasta > ~/300_blast/viral_contigs_refseq_300.fasta
 ```
-delete anything after | in fasta header
+20. delete anything after | in fasta header
 ```sh
 cut -d'|' -f1 virsorter_contigs.fa > virsorter_contigs_1.fa
 ```
-find in common headers
+21. find in common headers
 ```sh
 awk '/^>/{if (a[$1]>=1){print $1}a[$1]++}' virsorter_contigs_1.fa viral_contigs_refseq_300.fasta > common_viral.txt
 ```
-takes away > from each line
+22. takes away > from each line
 ```sh
 perl -pe 's,.*>,,' common_viral.txt > common_viral2.txt
 ```
 
-delete same sequences from virsorter contig file
+23. delete same sequences from virsorter contig file
 ```sh
 awk 'BEGIN{while((getline<"common_viral2.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' virsorter_contigs_1.fa > virsorter_unique_viruses.fa
 ```
-combine viral RefSeq contigs and Virsorter2 contigs
+24. combine viral RefSeq contigs and Virsorter2 contigs
 ```sh
 cat virsorter_unique_viruses.fa viral_contigs_refseq_300.fasta > Refseq_virsorter_contigs.fasta
 ```
-
-blastx viral RefSeq and VirSorter contigs on nr
+24. blastx viral RefSeq and VirSorter contigs on nr
 ```sh
 ~/diamond/diamond blastx -p "50" -d ~/nr/nr_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o ~/300_blast/NR_blastx_contigs_300.out -q ~/300_blast/Refseq_virsorter_contigs.fasta &
 ```
-extract viral fasta sequences from  blastx NR results (to make txt file need to do this in text wrangler)
+25. extract viral fasta sequences from  blastx NR results (to make txt file need to do this in text wrangler)
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/300_blast/viruses_NR_300.txt ~/300_blast/Refseq_virsorter_contigs.fasta > ~/300_blast/final_NR_viral_contigs.fasta
 ```
-CHECKV to look for proviral contamination (on home desktop)
+26. CHECKV to look for proviral contamination (on home desktop)
 ```sh
 export CHECKVDB=~/checkv-db-v1.0
 checkv contamination ~/final_NR_viral_contigs.fasta  ~/checkv_output2
 ```
 
-extract viral fasta sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and 500 bp
+27. extract viral fasta sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and 500 bp
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/final_viruses/final_viruses.txt ~/300_blast/final_NR_viral_contigs.fasta > ~/final_viruses/final_viruses_aftertaxonomy.fasta
 ```
 
-
-#Phylogenetics Workflow 
+##Phylogenetics Workflow 
 
 Geneious for manual alignment 
 
