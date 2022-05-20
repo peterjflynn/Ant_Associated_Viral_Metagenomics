@@ -74,26 +74,21 @@ done
 
 ```
 
-concatenate all hits together
+10. concatenate all hits together
 ```sh
-cat * > all_contigs_cdhit.fasta
+cat * > all_contigs_cdhit_decon.fasta
 ```
-sort contigs by length
+11. sort contigs by length
 ```sh
-~/bbmap_2/sortbyname.sh in=all_contigs_cdhit.fasta out=all_contigs_cdhit_sorted.fasta length descending
+~/bbmap_2/sortbyname.sh in=all_contigs_cdhit.fasta out=all_contigs_cdhit_decon_sorted.fasta length descending
 ```
-make single line
+12. make single line
 ```sh
-perl -pe '/^>/ ? print "\n" : chomp’  /Users/peterflynn/Desktop/Scaffolds_renamed/43_scaffolds_300.fasta >  /Users/peterflynn/Desktop/Scaffolds_renamed/43_scaffolds_300_single.fasta
+perl -pe '/^>/ ? print "\n" : chomp’  /all_contigs_cdhit_decon_sorted.fasta >  /all_contigs_cdhit_decon_sorted_single.fasta
 ```
 # Virsorter2  
-Use VirSorter2 to identify further viral contigs from your cross-assembled samples. I found that the CyVerse version of VirSorter2 worked better than the command line versions.
+13. Use VirSorter2 version 2.1.0 to identify further viral contigs from your cross-assembled samples. I found that the CyVerse version of VirSorter2 worked better than the command line versions. Did not change any parameters Output file is: virsorter_contigs.fa
 
-#CHECKV to look for proviral contamination (on home desktop)
-```sh
-export CHECKVDB=~/checkv-db-v1.0
-checkv contamination ~/final_NR_viral_contigs.fasta  ~/checkv_output2
-```
 #Decontaminate
 database with taxonomy for decontamination, these files are several gb, but you can download them to your server from NCBI. This tutorial is helpful: https://andreirozanski.com/2020/01/03/building-a-diamond-db-using-refseq-protein/
 
@@ -119,11 +114,58 @@ delete contaminated sequences from contig file
 ```sh
 awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' all_contigs_cdhit_decon_sorted_single.fasta > all_contigs_300_decontam_cdhit_single.fasta
 ```
+blastx with contig list on RefSeq database
+```sh
+~/diamond/diamond blastx -p "40" -d ~/refseq_protein_vir_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o ~/300_blast/RefSeq_blastx_contigs_300.out -q ~/300_blast/all_contigs_300_decontam_cdhit_single.fasta &
+```
+extract viral fasta sequences from  blastx refseq results (to make txt file need to do this in text wrangler)
+```sh
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/300_blast/RefSeq_viral_contigs.txt ~/300_blast/all_contigs_300_decontam_cdhit_single.fasta > ~/300_blast/viral_contigs_refseq_300.fasta
+```
+delete anything after | in fasta header
+```sh
+cut -d'|' -f1 virsorter_contigs.fa > virsorter_contigs_1.fa
+```
+find in common headers
+```sh
+awk '/^>/{if (a[$1]>=1){print $1}a[$1]++}' virsorter_contigs_1.fa viral_contigs_refseq_300.fasta > common_viral.txt
+```
+takes away > from each line
+```sh
+perl -pe 's,.*>,,' common_viral.txt > common_viral2.txt
+```
+
+delete same sequences from virsorter contig file
+```sh
+awk 'BEGIN{while((getline<"common_viral2.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' virsorter_contigs_1.fa > virsorter_unique_viruses.fa
+```
+combine viral RefSeq contigs and Virsorter2 contigs
+```sh
+cat virsorter_unique_viruses.fa viral_contigs_refseq_300.fasta > Refseq_virsorter_contigs.fasta
+```
+
+blastx viral RefSeq and VirSorter contigs on nr
+```sh
+~/diamond/diamond blastx -p "50" -d ~/nr/nr_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o ~/300_blast/NR_blastx_contigs_300.out -q ~/300_blast/Refseq_virsorter_contigs.fasta &
+```
+extract viral fasta sequences from  blastx NR results (to make txt file need to do this in text wrangler)
+```sh
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/300_blast/viruses_NR_300.txt ~/300_blast/Refseq_virsorter_contigs.fasta > ~/300_blast/final_NR_viral_contigs.fasta
+```
+CHECKV to look for proviral contamination (on home desktop)
+```sh
+export CHECKVDB=~/checkv-db-v1.0
+checkv contamination ~/final_NR_viral_contigs.fasta  ~/checkv_output2
+```
+
+extract viral fasta sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and 500 bp
+```sh
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/final_viruses/final_viruses.txt ~/300_blast/final_NR_viral_contigs.fasta > ~/final_viruses/final_viruses_aftertaxonomy.fasta
+```
+
 
 #Phylogenetics Workflow 
 
 Geneious for manual alignment 
-
-# Happy Christmas!
 
 ![Happy Christmas](atta.png)
