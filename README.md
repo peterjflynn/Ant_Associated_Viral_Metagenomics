@@ -1,16 +1,22 @@
 # Ant Associated Viral Metagenomics Workflow
 ## Dependencies 
-Java <br>
-Perl <br>
+[Java](https://www.java.com/en/) <br>
+[Perl](https://www.perl.org/) <br>
 [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) <br>
-Samtools <br>
-Trimmomatic-0.35 <br>
-Spades 3.14.0 <br>
-CheckV <br>
-CD Hit <br>
-Virsorter2 Note: used CyVerse version of VirSorter2 <br>
+[Samtools](http://samtools.sourceforge.net/) <br>
+[Trimmomatic-0.35](http://www.usadellab.org/cms/?page=trimmomatic) <br>
+[Spades 3.14.0](https://github.com/ablab/spades/releases) <br>
+[BBMap](https://sourceforge.net/projects/bbmap/) <br>
+[CheckV](https://bitbucket.org/berkeleylab/checkv/src/master/) <br>
+[CD-Hit v4.8.1](http://weizhong-lab.ucsd.edu/cd-hit/) <br>
+[Virsorter2](https://github.com/jiarong/VirSorter2) Note: used [CyVerse](https://de.cyverse.org/) version of VirSorter2 <br>
 
-## Bioinformatics Workflow
+[ProtTest v3.4.2](https://github.com/ddarriba/prottest3) 
+[EMBOSS 6.6.0](http://emboss.sourceforge.net/download/)
+[MAFFT v.7.309](https://mafft.cbrc.jp/alignment/software/)
+[RAxML v8.2.11](https://cme.h-its.org/exelixis/web/software/raxml/) 
+
+## Bioinformatics Pipeline
 This workflow starts with raw paired-end HiSeq data in demultiplexed FASTQ formated assumed to be located within a folder called raw_seq
 Example for one sample
 1. Concatenates the reads from multiple lanes of sequencing together  
@@ -156,14 +162,12 @@ awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/300_blast/viruses_NR_
 export CHECKVDB=~/checkv-db-v1.0
 checkv contamination ~/final_NR_viral_contigs.fasta  ~/checkv_output2
 ```
-
 27. extract viral fasta sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and 500 bp
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' ~/final_viruses/final_viruses.txt ~/300_blast/final_NR_viral_contigs.fasta > ~/final_viruses/final_viruses_aftertaxonomy.fasta
 ```
 
-##Phylogenetics Workflow 
-
+## Phylogenetics Pipeline
 Geneious for manual alignment 
 
 ![Happy Christmas](atta.png)
