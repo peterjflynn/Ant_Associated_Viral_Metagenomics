@@ -2,7 +2,7 @@
 ## Dependencies 
 Java <br>
 Perl <br>
-[Bowtie2] (http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) <br>
+[Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) <br>
 Samtools <br>
 Trimmomatic-0.35 <br>
 Spades 3.14.0 <br>
