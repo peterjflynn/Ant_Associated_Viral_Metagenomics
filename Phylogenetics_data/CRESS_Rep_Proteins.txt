@@ -1,0 +1,675 @@
+35_NODE_677_length_1012_cov_0.461017_2 [55 - 453] 
+39_NODE_2738_length_632_cov_0.740594_2 [967 - 572] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_147_length_2034_cov_9.755113_3 [1885 - 1169] (REVERSE SENSE) 
+42_NODE_20_length_4235_cov_14.126339_1 [210 - 1154] 
+43_NODE_1205_length_1137_cov_0.403960_1 [1081 - 1479] (ORF crosses the breakpoint) 
+43_NODE_489_length_2776_cov_2.607777_10 [1081 - 215] (REVERSE SENSE) 
+43_NODE_914_length_1484_cov_0.332351_1 [428 - 976] 
+45_NODE_1_length_5788_cov_47.141318_8 [1272 - 364] (REVERSE SENSE) 
+10_NODE_16_length_2133_cov_2.359920_3 [1966 - 1580] (REVERSE SENSE) 
+10_NODE_16_length_2133_cov_2.359920_6 [689 - 27] (REVERSE SENSE) 
+10_NODE_6_length_3196_cov_4.430759_10 [3480 - 3166] (REVERSE SENSE) (ORF crosses the breakpoint) 
+10_NODE_6_length_3196_cov_4.430759_3 [3184 - 2543] (REVERSE SENSE) 
+10_NODE_6_length_3196_cov_4.430759_6 [2477 - 2031] (REVERSE SENSE) 
+10_NODE_6_length_3196_cov_4.430759_8 [991 - 350] (REVERSE SENSE) 
+24_NODE_121_length_2222_cov_1.219093_1 [69 - 473] 
+24_NODE_121_length_2222_cov_1.219093_5 [1449 - 2135] 
+26_NODE_47_length_1913_cov_0.594625_1 [37 - 423] 
+26_NODE_47_length_1913_cov_0.594625_3 [1314 - 1625] 
+26_NODE_47_length_1913_cov_0.594625_8 [1942 - 1550] (REVERSE SENSE) (ORF crosses the breakpoint) 
+28_NODE_127_length_2303_cov_635.477941_2 [1839 - 2399] (ORF crosses the breakpoint) 
+28_NODE_127_length_2303_cov_635.477941_4 [2047 - 3435] (ORF crosses the breakpoint) 
+28_NODE_132_length_2282_cov_9.055220_5 [2229 - 1603] (REVERSE SENSE) 
+28_NODE_132_length_2282_cov_9.055220_6 [1486 - 1085] (REVERSE SENSE) 
+32_NODE_65_length_2269_cov_0.538749_7 [1528 - 818] (REVERSE SENSE) 
+32_NODE_65_length_2269_cov_0.538749_9 [797 - 318] (REVERSE SENSE) 
+38_NODE_105_length_2485_cov_1.659033_5 [1065 - 1409] 
+38_NODE_105_length_2485_cov_1.659033_8 [1566 - 1943] 
+38_NODE_107_length_2424_cov_1.486722_3 [1048 - 1779] 
+38_NODE_107_length_2424_cov_1.486722_4 [1864 - 2289] 
+38_NODE_119_length_2133_cov_3.311565_4 [2075 - 1413] (REVERSE SENSE) 
+38_NODE_119_length_2133_cov_3.311565_5 [1346 - 960] (REVERSE SENSE) 
+43_NODE_585_length_2393_cov_0.634157_2 [1616 - 2218] 
+43_NODE_585_length_2393_cov_0.634157_3 [1582 - 2376] 
+43_NODE_644_length_2183_cov_0.605058_4 [1114 - 473] (REVERSE SENSE) 
+43_NODE_644_length_2183_cov_0.605058_7 [407 - 0] (REVERSE SENSE) 
+43_NODE_711_length_1976_cov_0.400757_4 [1381 - 524] (REVERSE SENSE) 
+43_NODE_796_length_1749_cov_1.088163_6 [1816 - 1067] (REVERSE SENSE) (ORF crosses the breakpoint) 
+6_NODE_26_length_3304_cov_204.311300_1 [54 - 692] 
+6_NODE_26_length_3304_cov_204.311300_3 [1468 - 2040] 
+8_NODE_29_length_2293_cov_1.414589_1 [830 - 1519] 
+8_NODE_29_length_2293_cov_1.414589_3 [1519 - 2013] 
+28_NODE_132_length_2282_cov_9.055220_4 [2278 - 1652] (REVERSE SENSE) 
+28_NODE_171_length_2184_cov_2.558094_6 [1600 - 950] (REVERSE SENSE) 
+28_NODE_171_length_2184_cov_2.558094_8 [946 - 551] (REVERSE SENSE) 
+29_NODE_1078_length_623_cov_21.854839_1 [327 - 755] (ORF crosses the breakpoint) 
+29_NODE_1078_length_623_cov_21.854839_2 [983 - 492] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_551_length_1215_cov_0.525735_3 [965 - 297] (REVERSE SENSE) 
+35_NODE_551_length_1215_cov_0.525735_4 [1442 - 1086] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_112_length_2341_cov_1.448509_1 [603 - 1292] 
+38_NODE_112_length_2341_cov_1.448509_3 [1292 - 1792] 
+41_NODE_37_length_4132_cov_4.336330_11 [4937 - 4131] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_37_length_4132_cov_4.336330_7 [3827 - 3129] (REVERSE SENSE) 
+41_NODE_67_length_2781_cov_9.948003_2 [1321 - 1962] 
+41_NODE_67_length_2781_cov_9.948003_4 [2028 - 2417] 
+41_NODE_67_length_2781_cov_9.948003_6 [2483 - 2827] (ORF crosses the breakpoint) 
+41_NODE_67_length_2781_cov_9.948003_8 [2580 - 3062] (ORF crosses the breakpoint) 
+42_NODE_28_length_2896_cov_0.583604_4 [2797 - 2129] (REVERSE SENSE) 
+42_NODE_28_length_2896_cov_0.583604_5 [2059 - 1646] (REVERSE SENSE) 
+43_NODE_1153_length_1189_cov_0.415254_1 [799 - 449] (REVERSE SENSE) 
+43_NODE_1153_length_1189_cov_0.415254_2 [1556 - 1035] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_711_length_1976_cov_0.400757_2 [1852 - 1385] (REVERSE SENSE) 
+43_NODE_796_length_1749_cov_1.088163_3 [1046 - 567] (REVERSE SENSE) 
+26_NODE_22_length_3063_cov_1.849796_5 [852 - 358] (REVERSE SENSE) 
+26_NODE_22_length_3063_cov_1.849796_7 [3147 - 2476] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_19_length_2509_cov_0.638959_4 [1820 - 2200] 
+39_NODE_19_length_2509_cov_0.638959_5 [2204 - 2506] 
+39_NODE_19_length_2509_cov_0.638959_6 [2146 - 2526] (ORF crosses the breakpoint) 
+41_NODE_54_length_3068_cov_3.607616_6 [2866 - 2255] (REVERSE SENSE) 
+41_NODE_54_length_3068_cov_3.607616_9 [3478 - 2870] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_435_length_3148_cov_1.578616_7 [1081 - 545] (REVERSE SENSE) 
+43_NODE_435_length_3148_cov_1.578616_8 [3689 - 3108] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_466_length_2921_cov_1.471367_3 [2850 - 2401] (REVERSE SENSE) 
+43_NODE_466_length_2921_cov_1.471367_5 [2250 - 1852] (REVERSE SENSE) 
+43_NODE_466_length_2921_cov_1.471367_7 [1818 - 1519] (REVERSE SENSE) 
+10_NODE_8_length_2827_cov_0.818519_4 [3590 - 2742] (REVERSE SENSE) (ORF crosses the breakpoint) 
+12_NODE_222_length_2194_cov_0.867441_2 [333 - 911] 
+12_NODE_70_length_2970_cov_0.663384_2 [922 - 1926] 
+15_NODE_688_length_1829_cov_1.779083_3 [1878 - 1030] (REVERSE SENSE) (ORF crosses the breakpoint) 
+17_NODE_107_length_1269_cov_1.304729_2 [1284 - 616] (REVERSE SENSE) (ORF crosses the breakpoint) 
+17_NODE_26_length_2157_cov_4.133005_3 [1424 - 2173] (ORF crosses the breakpoint) 
+22_NODE_89_length_1287_cov_0.311207_2 [1263 - 1709] (ORF crosses the breakpoint) 
+24_NODE_147_length_2134_cov_12.652217_7 [2288 - 1371] (REVERSE SENSE) (ORF crosses the breakpoint) 
+24_NODE_213_length_1914_cov_36.453274_3 [864 - 292] (REVERSE SENSE) 
+26_NODE_40_length_2256_cov_0.596994_6 [3312 - 2203] (REVERSE SENSE) (ORF crosses the breakpoint) 
+26_NODE_46_length_1960_cov_1.434261_4 [1917 - 2540] (ORF crosses the breakpoint) 
+27_NODE_77_length_1893_cov_7.678935_2 [2445 - 1879] (REVERSE SENSE) (ORF crosses the breakpoint) 
+27_NODE_90_length_1829_cov_4.597532_2 [2591 - 1827] (REVERSE SENSE) (ORF crosses the breakpoint) 
+28_NODE_4648_length_740_cov_0.546493_1 [244 - 1149] (ORF crosses the breakpoint) 
+28_NODE_6412_length_654_cov_0.311195_2 [2 - 1962] (ORF crosses the breakpoint) 
+3_NODE_103_length_2866_cov_2.248266_2 [818 - 1450] 
+3_NODE_147_length_2268_cov_1.432041_4 [1164 - 1874] 
+30_NODE_154_length_1070_cov_0.469777_4 [962 - 519] (REVERSE SENSE) 
+31_NODE_62_length_2376_cov_1.497554_5 [2728 - 1757] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_71_length_1977_cov_347.073514_5 [1998 - 1165] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_81_length_1848_cov_11.520628_2 [2457 - 1828] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_84_length_1821_cov_5.992916_1 [1120 - 1842] (ORF crosses the breakpoint) 
+33_NODE_117_length_1791_cov_0.968149_3 [1429 - 1791] 
+35_NODE_215_length_2889_cov_3.901883_5 [2881 - 3579] (ORF crosses the breakpoint) 
+35_NODE_220_length_2857_cov_7.276557_9 [3364 - 1940] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_232_length_2719_cov_1.028935_6 [2074 - 2727] (ORF crosses the breakpoint) 
+35_NODE_239_length_2653_cov_389.067300_3 [2062 - 1154] (REVERSE SENSE) 
+35_NODE_248_length_2518_cov_0.449184_4 [3044 - 2337] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_269_length_2305_cov_1.279614_4 [1103 - 1813] 
+35_NODE_271_length_2300_cov_6.325357_4 [2910 - 2191] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_284_length_2188_cov_0.706453_2 [2167 - 2898] (ORF crosses the breakpoint) 
+35_NODE_310_length_2009_cov_26.784803_5 [2466 - 1345] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_331_length_1895_cov_3.598416_6 [2806 - 1085] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_348_length_1824_cov_0.917501_4 [1502 - 807] (REVERSE SENSE) 
+35_NODE_354_length_1796_cov_0.446974_2 [231 - 803] 
+35_NODE_409_length_1556_cov_0.606018_2 [1515 - 2345] (ORF crosses the breakpoint) 
+35_NODE_497_length_1322_cov_0.526360_2 [472 - 1332] (ORF crosses the breakpoint) 
+35_NODE_51_length_5288_cov_0.594071_7 [4469 - 5161] 
+35_NODE_534_length_1245_cov_0.805009_2 [414 - 1184] 
+37_NODE_9_length_2197_cov_0.533333_6 [2240 - 1488] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_127_length_1972_cov_4.443902_4 [488 - 3] (REVERSE SENSE) 
+38_NODE_133_length_1916_cov_6.823924_5 [2288 - 1455] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_139_length_1870_cov_14.520367_4 [1504 - 2520] (ORF crosses the breakpoint) 
+39_NODE_15_length_2722_cov_3.016570_2 [1384 - 362] (REVERSE SENSE) 
+39_NODE_16_length_2687_cov_1.667969_7 [3468 - 2338] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_22_length_2463_cov_0.832192_5 [2222 - 1401] (REVERSE SENSE) 
+39_NODE_306_length_1225_cov_8.362477_3 [1253 - 510] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_44_length_2053_cov_0.469886_5 [1820 - 2599] (ORF crosses the breakpoint) 
+39_NODE_8_length_3307_cov_0.979874_5 [1038 - 436] (REVERSE SENSE) 
+41_NODE_102_length_2319_cov_1.398266_1 [348 - 1043] 
+41_NODE_108_length_2268_cov_4.149463_2 [748 - 1686] 
+41_NODE_121_length_2188_cov_93.414362_3 [2141 - 2752] (ORF crosses the breakpoint) 
+41_NODE_179_length_1871_cov_0.924312_7 [1900 - 1394] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_2673_length_672_cov_7.915596_2 [479 - 1039] (ORF crosses the breakpoint) 
+41_NODE_96_length_2398_cov_0.797446_5 [3196 - 2093] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_98_length_2390_cov_5.125497_9 [1481 - 651] (REVERSE SENSE) 
+42_NODE_103_length_1303_cov_0.454082_1 [1921 - 1115] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_43_length_2136_cov_4.183176_4 [1493 - 2134] 
+43_NODE_1218_length_1129_cov_1.240519_2 [1316 - 669] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1611_length_890_cov_0.394495_2 [1833 - 886] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_446_length_3045_cov_1.113091_3 [1410 - 700] (REVERSE SENSE) 
+43_NODE_463_length_2927_cov_2.191071_5 [2288 - 3490] (ORF crosses the breakpoint) 
+43_NODE_542_length_2535_cov_0.653239_5 [1942 - 2541] (ORF crosses the breakpoint) 
+43_NODE_602_length_2316_cov_2.032435_2 [1930 - 2916] (ORF crosses the breakpoint) 
+43_NODE_609_length_2302_cov_0.662529_5 [2296 - 2919] (ORF crosses the breakpoint) 
+43_NODE_614_length_2292_cov_1.587067_3 [1745 - 2974] (ORF crosses the breakpoint) 
+43_NODE_638_length_2194_cov_0.919207_3 [1447 - 2031] 
+43_NODE_652_length_2165_cov_0.849853_4 [2515 - 1796] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_731_length_1891_cov_6.926871_5 [2367 - 1345] (REVERSE SENSE) (ORF crosses the breakpoint) 
+44_NODE_830_length_770_cov_1.485226_1 [307 - 921] (ORF crosses the breakpoint) 
+45_NODE_14_length_1847_cov_2.413372_5 [2545 - 1742] (REVERSE SENSE) (ORF crosses the breakpoint) 
+45_NODE_16_length_1829_cov_271.561105_2 [1008 - 1844] (ORF crosses the breakpoint) 
+6_NODE_27_length_3150_cov_1.646709_4 [2466 - 2927] 
+7_NODE_1080_length_699_cov_1103.050699_2 [264 - 794] (ORF crosses the breakpoint) 
+8_NODE_25_length_2334_cov_5.841867_7 [1458 - 445] (REVERSE SENSE) 
+8_NODE_44_length_1944_cov_12.591635_3 [2178 - 1237] (REVERSE SENSE) (ORF crosses the breakpoint) 
+8_NODE_59_length_1748_cov_5.853794_3 [1770 - 901] (REVERSE SENSE) (ORF crosses the breakpoint) 
+9_NODE_14_length_2453_cov_1.503439_6 [2651 - 1818] (REVERSE SENSE) (ORF crosses the breakpoint) 
+30_NODE_10_length_2256_cov_0.887741_6 [2810 - 2253] (REVERSE SENSE) (ORF crosses the breakpoint) 
+10_NODE_1113_length_540_cov_0.443099_2 [538 - 2] (REVERSE SENSE) 
+10_NODE_1374_length_518_cov_0.291560_2 [1035 - 1] (REVERSE SENSE) (ORF crosses the breakpoint) 
+10_NODE_14_length_2209_cov_1.837656_4 [2132 - 1038] (REVERSE SENSE) 
+10_NODE_18_length_1972_cov_286.030894_3 [1896 - 1210] (REVERSE SENSE) 
+10_NODE_19_length_1968_cov_1661.222705_2 [219 - 1145] 
+10_NODE_20_length_1943_cov_1.688326_4 [1751 - 903] (REVERSE SENSE) 
+10_NODE_33_length_1271_cov_0.507867_2 [112 - 1104] 
+10_NODE_5_length_3789_cov_1.429001_2 [490 - 1731] 
+10_NODE_525_length_621_cov_0.412955_2 [610 - 50] (REVERSE SENSE) 
+10_NODE_880_length_563_cov_0.477064_1 [364 - 792] (ORF crosses the breakpoint) 
+10_NODE_9_length_2648_cov_2.057120_3 [401 - 1660] 
+12_NODE_265_length_2057_cov_0.894819_2 [299 - 1309] 
+12_NODE_6151_length_705_cov_0.306228_1 [1113 - 649] (REVERSE SENSE) (ORF crosses the breakpoint) 
+12_NODE_65_length_3069_cov_1.659075_2 [1607 - 2698] 
+16_NODE_307_length_1872_cov_0.590258_3 [1745 - 900] (REVERSE SENSE) 
+16_NODE_377_length_1722_cov_0.820063_1 [1710 - 2513] (ORF crosses the breakpoint) 
+16_NODE_385_length_1708_cov_0.688805_3 [1620 - 2366] (ORF crosses the breakpoint) 
+17_NODE_108_length_1261_cov_0.248677_3 [1431 - 985] (REVERSE SENSE) (ORF crosses the breakpoint) 
+17_NODE_14_length_2654_cov_9.450732_3 [1506 - 715] (REVERSE SENSE) 
+17_NODE_148_length_1119_cov_0.398185_2 [1709 - 801] (REVERSE SENSE) (ORF crosses the breakpoint) 
+17_NODE_1543_length_599_cov_1982.680085_1 [3 - 548] 
+17_NODE_22_length_2230_cov_15.464099_1 [244 - 1248] 
+17_NODE_24_length_2185_cov_0.632167_2 [1298 - 444] (REVERSE SENSE) 
+17_NODE_2561_length_536_cov_0.337408_1 [78 - 620] (ORF crosses the breakpoint) 
+17_NODE_32_length_2041_cov_0.613375_4 [1170 - 2027] 
+17_NODE_41_length_1840_cov_0.978400_3 [55 - 948] 
+17_NODE_460_length_788_cov_2148.810893_1 [471 - 97] (REVERSE SENSE) 
+17_NODE_516_length_765_cov_0.677116_1 [1432 - 713] (REVERSE SENSE) (ORF crosses the breakpoint) 
+17_NODE_66_length_1503_cov_0.573401_5 [1544 - 1104] (REVERSE SENSE) (ORF crosses the breakpoint) 
+18_NODE_1678_length_634_cov_0.560158_2 [1239 - 583] (REVERSE SENSE) (ORF crosses the breakpoint) 
+18_NODE_5_length_3747_cov_12.423204_2 [515 - 1777] 
+19_NODE_82_length_1937_cov_0.395028_4 [1871 - 2548] (ORF crosses the breakpoint) 
+20_NODE_2_length_2616_cov_15.671354_4 [2268 - 1327] (REVERSE SENSE) 
+21_NODE_13_length_2104_cov_132.732929_2 [385 - 1311] 
+21_NODE_18_length_1972_cov_30.454201_5 [1272 - 586] (REVERSE SENSE) 
+22_NODE_159_length_955_cov_0.328502_3 [1136 - 309] (REVERSE SENSE) (ORF crosses the breakpoint) 
+22_NODE_296_length_741_cov_0.674267_1 [58 - 741] 
+22_NODE_38_length_2666_cov_0.708941_7 [1962 - 1000] (REVERSE SENSE) 
+22_NODE_395_length_655_cov_0.210227_2 [1146 - 625] (REVERSE SENSE) (ORF crosses the breakpoint) 
+22_NODE_46_length_1922_cov_0.870195_2 [485 - 1357] 
+22_NODE_463_length_622_cov_0.450505_2 [1196 - 621] (REVERSE SENSE) (ORF crosses the breakpoint) 
+22_NODE_48_length_1893_cov_3.052095_2 [1665 - 829] (REVERSE SENSE) 
+22_NODE_50_length_1824_cov_476.263406_1 [139 - 999] 
+22_NODE_52_length_1750_cov_1.994455_1 [150 - 731] 
+22_NODE_53_length_1689_cov_0.961588_1 [215 - 742] 
+22_NODE_602_length_577_cov_0.286667_2 [171 - 704] (ORF crosses the breakpoint) 
+24_NODE_11_length_4332_cov_51.758383_15 [3845 - 2475] (REVERSE SENSE) 
+24_NODE_114_length_2257_cov_0.915962_2 [564 - 1388] 
+24_NODE_192_length_1955_cov_0.554158_3 [972 - 121] (REVERSE SENSE) 
+24_NODE_20164_length_510_cov_0.300261_1 [505 - 1011] (ORF crosses the breakpoint) 
+24_NODE_215_length_1910_cov_53.651711_2 [440 - 1402] 
+24_NODE_236_length_1858_cov_0.763720_3 [1704 - 931] (REVERSE SENSE) 
+24_NODE_4668_length_733_cov_0.570957_1 [350 - 733] 
+24_NODE_4740_length_730_cov_0.533997_3 [735 - 85] (REVERSE SENSE) (ORF crosses the breakpoint) 
+24_NODE_67_length_2672_cov_1.016896_2 [842 - 1915] 
+24_NODE_692_length_1351_cov_0.369281_1 [875 - 1180] 
+24_NODE_849_length_1263_cov_779.731514_2 [663 - 190] (REVERSE SENSE) 
+24_NODE_89_length_2441_cov_6.474071_5 [2445 - 1351] (REVERSE SENSE) (ORF crosses the breakpoint) 
+24_NODE_97_length_2334_cov_129.447213_6 [2125 - 1718] (REVERSE SENSE) 
+26_NODE_105_length_1198_cov_1.487395_2 [1130 - 135] (REVERSE SENSE) 
+26_NODE_107_length_1183_cov_0.484848_2 [1172 - 141] (REVERSE SENSE) 
+26_NODE_21_length_3072_cov_0.597623_5 [2773 - 1718] (REVERSE SENSE) 
+26_NODE_24_length_2954_cov_5.307393_2 [2864 - 1866] (REVERSE SENSE) 
+26_NODE_25_length_2801_cov_4.133508_4 [1662 - 634] (REVERSE SENSE) 
+26_NODE_28_length_2760_cov_1.458412_5 [2272 - 1184] (REVERSE SENSE) 
+26_NODE_303_length_763_cov_0.806604_1 [439 - 801] (ORF crosses the breakpoint) 
+26_NODE_32_length_2404_cov_10.621432_4 [2236 - 1334] (REVERSE SENSE) 
+26_NODE_33_length_2395_cov_2.600088_4 [1572 - 490] (REVERSE SENSE) 
+26_NODE_335_length_720_cov_0.548061_1 [247 - 912] (ORF crosses the breakpoint) 
+26_NODE_35_length_2371_cov_4.421123_2 [2371 - 1454] (REVERSE SENSE) 
+26_NODE_37_length_2310_cov_1.540541_2 [196 - 1236] 
+26_NODE_39_length_2266_cov_4.141655_8 [854 - 345] (REVERSE SENSE) 
+26_NODE_419_length_642_cov_0.526214_1 [2 - 640] 
+26_NODE_42_length_2177_cov_0.735122_3 [1395 - 2315] (ORF crosses the breakpoint) 
+26_NODE_44_length_2055_cov_1.185166_3 [889 - 1710] 
+26_NODE_49_length_1895_cov_1.645362_2 [1824 - 2741] (ORF crosses the breakpoint) 
+26_NODE_53_length_1792_cov_0.258258_2 [1697 - 849] (REVERSE SENSE) 
+26_NODE_60_length_1671_cov_0.714378_5 [1669 - 920] (REVERSE SENSE) 
+27_NODE_61_length_2173_cov_1.625611_3 [1241 - 339] (REVERSE SENSE) 
+28_NODE_121_length_2327_cov_3.587273_4 [2301 - 3389] (ORF crosses the breakpoint) 
+28_NODE_122_length_2326_cov_30.447476_4 [1753 - 2157] 
+28_NODE_123_length_2317_cov_62.110959_6 [622 - 251] (REVERSE SENSE) 
+28_NODE_124_length_2311_cov_2.947344_5 [1500 - 991] (REVERSE SENSE) 
+28_NODE_146_length_2253_cov_1.274694_7 [415 - 44] (REVERSE SENSE) 
+28_NODE_1468_length_1119_cov_0.786290_4 [1197 - 586] (REVERSE SENSE) (ORF crosses the breakpoint) 
+28_NODE_1790_length_1047_cov_0.385870_2 [185 - 886] 
+28_NODE_1867_length_1033_cov_0.452539_4 [1480 - 1007] (REVERSE SENSE) (ORF crosses the breakpoint) 
+28_NODE_211_length_2011_cov_3.210191_2 [425 - 1279] 
+28_NODE_284_length_1839_cov_1.291472_3 [1405 - 692] (REVERSE SENSE) 
+28_NODE_318_length_1793_cov_0.650660_1 [784 - 359] (REVERSE SENSE) 
+28_NODE_322_length_1786_cov_1.597951_6 [713 - 36] (REVERSE SENSE) 
+28_NODE_44_length_2893_cov_4.935647_2 [1854 - 2852] 
+28_NODE_5185_length_711_cov_0.429795_3 [728 - 150] (REVERSE SENSE) (ORF crosses the breakpoint) 
+28_NODE_56_length_2817_cov_0.752045_1 [2611 - 3876] (ORF crosses the breakpoint) 
+28_NODE_693_length_1438_cov_0.502670_3 [612 - 46] (REVERSE SENSE) 
+28_NODE_73_length_2643_cov_5.827504_7 [1421 - 210] (REVERSE SENSE) 
+28_NODE_74_length_2620_cov_0.794224_4 [1647 - 2321] 
+28_NODE_8101_length_594_cov_0.781585_2 [532 - 1086] (ORF crosses the breakpoint) 
+28_NODE_84_length_2505_cov_1.851976_3 [506 - 1717] 
+3_NODE_104_length_2852_cov_1.194862_3 [2192 - 3532] (ORF crosses the breakpoint) 
+3_NODE_138_length_2331_cov_2.309891_1 [561 - 968] 
+3_NODE_179_length_1978_cov_0.924365_4 [1667 - 819] (REVERSE SENSE) 
+3_NODE_251_length_1589_cov_0.482216_2 [55 - 990] 
+3_NODE_253_length_1572_cov_0.683737_1 [356 - 829] 
+3_NODE_312_length_1374_cov_1.334403_1 [137 - 646] 
+3_NODE_321_length_1344_cov_0.473295_2 [1133 - 213] (REVERSE SENSE) 
+3_NODE_474_length_1069_cov_0.537155_2 [1396 - 152] (REVERSE SENSE) (ORF crosses the breakpoint) 
+3_NODE_83_length_3137_cov_7.119269_4 [2395 - 1316] (REVERSE SENSE) 
+30_NODE_1045_length_735_cov_0.378289_2 [823 - 104] (REVERSE SENSE) (ORF crosses the breakpoint) 
+30_NODE_12_length_2167_cov_0.633824_2 [12 - 1049] 
+30_NODE_1420_length_695_cov_0.508803_1 [661 - 1434] (ORF crosses the breakpoint) 
+30_NODE_1548_length_683_cov_0.455036_1 [99 - 1391] (ORF crosses the breakpoint) 
+30_NODE_16_length_1969_cov_23.013029_2 [1784 - 753] (REVERSE SENSE) 
+30_NODE_1708_length_673_cov_0.326007_3 [988 - 515] (REVERSE SENSE) (ORF crosses the breakpoint) 
+30_NODE_3062_length_604_cov_0.431866_2 [1120 - 533] (REVERSE SENSE) (ORF crosses the breakpoint) 
+30_NODE_411_length_879_cov_0.646277_2 [990 - 199] (REVERSE SENSE) (ORF crosses the breakpoint) 
+30_NODE_6_length_2710_cov_0.759969_2 [237 - 1310] 
+30_NODE_6632_length_520_cov_0.450382_1 [168 - 611] (ORF crosses the breakpoint) 
+30_NODE_70_length_1307_cov_0.555932_1 [971 - 1333] (ORF crosses the breakpoint) 
+31_NODE_102_length_1631_cov_0.678856_3 [1654 - 1286] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_1048_length_692_cov_0.403540_1 [967 - 665] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_140_length_1394_cov_0.868982_3 [1908 - 1201] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_2240_length_565_cov_0.609589_2 [1247 - 3] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_2791_length_532_cov_0.493827_1 [1239 - 508] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_43_length_3198_cov_0.881146_6 [3200 - 2763] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_435_length_916_cov_0.604563_3 [909 - 532] (REVERSE SENSE) 
+31_NODE_47_length_2927_cov_3.111071_6 [1290 - 205] (REVERSE SENSE) 
+31_NODE_50_length_2863_cov_35.005482_3 [1695 - 595] (REVERSE SENSE) 
+31_NODE_56_length_2505_cov_2.470984_7 [2140 - 929] (REVERSE SENSE) 
+31_NODE_59_length_2411_cov_2.857706_3 [2337 - 3311] (ORF crosses the breakpoint) 
+31_NODE_63_length_2308_cov_7.221917_5 [3205 - 1994] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_64_length_2260_cov_1.151430_2 [217 - 1134] 
+31_NODE_66_length_2211_cov_0.703455_7 [2213 - 216] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_669_length_791_cov_0.421687_1 [489 - 992] (ORF crosses the breakpoint) 
+31_NODE_77_length_1891_cov_1.038549_3 [2890 - 1886] (REVERSE SENSE) (ORF crosses the breakpoint) 
+31_NODE_79_length_1850_cov_8.654092_2 [1012 - 110] (REVERSE SENSE) 
+32_NODE_5715_length_500_cov_0.109920_1 [934 - 494] (REVERSE SENSE) (ORF crosses the breakpoint) 
+33_NODE_108_length_1835_cov_2.149883_1 [1688 - 1047] (REVERSE SENSE) 
+33_NODE_144_length_1631_cov_0.586436_2 [1524 - 2618] (ORF crosses the breakpoint) 
+33_NODE_1527_length_636_cov_1.304519_2 [1166 - 591] (REVERSE SENSE) (ORF crosses the breakpoint) 
+33_NODE_354_length_1105_cov_0.686094_1 [9 - 383] 
+33_NODE_42_length_3605_cov_3.832087_3 [3349 - 2219] (REVERSE SENSE) 
+33_NODE_50_length_3219_cov_8.489004_6 [2769 - 4112] (ORF crosses the breakpoint) 
+33_NODE_650_length_885_cov_0.265172_2 [897 - 532] (REVERSE SENSE) (ORF crosses the breakpoint) 
+33_NODE_67_length_2552_cov_18.644536_6 [1026 - 22] (REVERSE SENSE) 
+33_NODE_75_length_2312_cov_633.264989_4 [1820 - 1431] (REVERSE SENSE) 
+33_NODE_76_length_2301_cov_133.442042_4 [2148 - 1753] (REVERSE SENSE) 
+33_NODE_834_length_799_cov_0.444940_2 [793 - 1260] (ORF crosses the breakpoint) 
+33_NODE_98_length_1931_cov_1.174058_3 [920 - 1873] 
+34_NODE_27_length_2322_cov_20.729841_3 [1923 - 3023] (ORF crosses the breakpoint) 
+34_NODE_28_length_2316_cov_3.723161_2 [357 - 1460] 
+34_NODE_40_length_2027_cov_2.640526_5 [2089 - 1034] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1006_length_773_cov_916.568111_1 [1549 - 749] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1074_length_742_cov_0.551220_3 [1112 - 720] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1176_length_696_cov_0.251318_2 [607 - 1161] (ORF crosses the breakpoint) 
+35_NODE_1205_length_684_cov_0.561939_3 [726 - 271] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1223_length_677_cov_0.350909_1 [1375 - 173] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1255_length_662_cov_0.472897_1 [655 - 1431] (ORF crosses the breakpoint) 
+35_NODE_1333_length_637_cov_0.331373_2 [528 - 1292] (ORF crosses the breakpoint) 
+35_NODE_1431_length_612_cov_0.424742_1 [123 - 731] (ORF crosses the breakpoint) 
+35_NODE_1435_length_611_cov_0.481405_2 [140 - 658] (ORF crosses the breakpoint) 
+35_NODE_1439_length_610_cov_0.387164_1 [152 - 613] (ORF crosses the breakpoint) 
+35_NODE_1462_length_603_cov_0.386555_2 [566 - 0] (REVERSE SENSE) 
+35_NODE_1521_length_586_cov_0.307190_2 [555 - 1178] (ORF crosses the breakpoint) 
+35_NODE_1531_length_584_cov_0.350109_1 [1177 - 572] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1537_length_582_cov_0.410989_4 [1746 - 1] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1626_length_563_cov_0.263761_1 [557 - 1687] (ORF crosses the breakpoint) 
+35_NODE_183_length_3611_cov_2.610792_1 [170 - 1291] 
+35_NODE_187_length_3461_cov_0.742951_7 [3470 - 2649] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_1897_length_510_cov_0.357702_1 [1 - 1530] (ORF crosses the breakpoint) 
+35_NODE_205_length_3038_cov_1.065613_12 [3173 - 1686] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_208_length_2972_cov_0.459402_1 [311 - 1225] 
+35_NODE_217_length_2877_cov_0.935636_2 [225 - 1490] 
+35_NODE_221_length_2840_cov_390.603022_3 [1638 - 2768] 
+35_NODE_234_length_2697_cov_0.790272_6 [1391 - 30] (REVERSE SENSE) 
+35_NODE_235_length_2683_cov_0.696009_6 [3998 - 2547] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_237_length_2673_cov_0.432836_5 [2665 - 1664] (REVERSE SENSE) 
+35_NODE_244_length_2566_cov_0.581796_1 [1173 - 2249] 
+35_NODE_252_length_2492_cov_0.351797_4 [1842 - 2534] (ORF crosses the breakpoint) 
+35_NODE_253_length_2489_cov_17.720576_7 [2360 - 1317] (REVERSE SENSE) 
+35_NODE_258_length_2394_cov_4.289369_1 [178 - 558] 
+35_NODE_260_length_2378_cov_0.851622_2 [1120 - 2127] 
+35_NODE_261_length_2377_cov_0.550222_3 [1238 - 2122] 
+35_NODE_262_length_2371_cov_2.844474_3 [1446 - 550] (REVERSE SENSE) 
+35_NODE_263_length_2370_cov_17.749889_2 [87 - 962] 
+35_NODE_267_length_2330_cov_60.291421_5 [2114 - 1716] (REVERSE SENSE) 
+35_NODE_27_length_6192_cov_1.583017_6 [1770 - 2357] 
+35_NODE_270_length_2303_cov_4.376838_7 [1052 - 663] (REVERSE SENSE) 
+35_NODE_272_length_2292_cov_17.440647_6 [1946 - 774] (REVERSE SENSE) 
+35_NODE_274_length_2270_cov_6.874475_2 [1269 - 2066] 
+35_NODE_275_length_2267_cov_0.472430_4 [1681 - 644] (REVERSE SENSE) 
+35_NODE_282_length_2204_cov_0.775156_2 [549 - 1532] 
+35_NODE_285_length_2187_cov_5.992718_6 [1612 - 779] (REVERSE SENSE) 
+35_NODE_286_length_2171_cov_1.604207_6 [2047 - 1181] (REVERSE SENSE) 
+35_NODE_287_length_2170_cov_12.838473_5 [2002 - 1145] (REVERSE SENSE) 
+35_NODE_288_length_2155_cov_1.857495_2 [1212 - 2117] 
+35_NODE_292_length_2140_cov_0.644312_3 [2170 - 932] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_294_length_2128_cov_0.657171_2 [407 - 1405] 
+35_NODE_300_length_2096_cov_1.024886_3 [885 - 1772] 
+35_NODE_302_length_2073_cov_4.495375_2 [82 - 1116] 
+35_NODE_318_length_1946_cov_1.236394_2 [1552 - 659] (REVERSE SENSE) 
+35_NODE_326_length_1910_cov_2.989905_4 [1034 - 72] (REVERSE SENSE) 
+35_NODE_328_length_1906_cov_1.763912_2 [464 - 1333] 
+35_NODE_329_length_1900_cov_4.106599_1 [102 - 980] 
+35_NODE_334_length_1888_cov_0.436684_5 [2768 - 1872] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_337_length_1869_cov_0.395522_3 [584 - 1558] 
+35_NODE_339_length_1859_cov_4.687644_1 [448 - 1353] 
+35_NODE_345_length_1829_cov_3274.924794_2 [1460 - 378] (REVERSE SENSE) 
+35_NODE_359_length_1779_cov_0.586562_2 [262 - 1125] 
+35_NODE_368_length_1727_cov_1.488750_4 [973 - 56] (REVERSE SENSE) 
+35_NODE_392_length_1600_cov_7.551935_2 [1450 - 377] (REVERSE SENSE) 
+35_NODE_423_length_1517_cov_0.453237_1 [35 - 877] 
+35_NODE_441_length_1479_cov_0.594675_3 [597 - 1754] (ORF crosses the breakpoint) 
+35_NODE_470_length_1404_cov_0.403289_5 [948 - 2279] (ORF crosses the breakpoint) 
+35_NODE_481_length_1373_cov_0.797753_1 [142 - 1443] (ORF crosses the breakpoint) 
+35_NODE_488_length_1367_cov_0.354839_2 [14 - 973] 
+35_NODE_604_length_1112_cov_0.352284_3 [1230 - 322] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_654_length_1037_cov_0.273626_2 [193 - 1170] (ORF crosses the breakpoint) 
+35_NODE_686_length_1002_cov_0.388571_3 [1003 - 302] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_709_length_984_cov_0.509918_1 [924 - 1346] (ORF crosses the breakpoint) 
+35_NODE_739_length_952_cov_0.366061_1 [190 - 1062] (ORF crosses the breakpoint) 
+35_NODE_776_length_925_cov_0.481203_2 [578 - 102] (REVERSE SENSE) 
+35_NODE_784_length_918_cov_12211.692794_1 [597 - 929] (ORF crosses the breakpoint) 
+35_NODE_796_length_907_cov_0.442308_2 [940 - 140] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_850_length_863_cov_0.501359_1 [848 - 1279] (ORF crosses the breakpoint) 
+35_NODE_858_length_860_cov_0.568895_3 [1749 - 793] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_928_length_818_cov_0.583213_3 [851 - 213] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_930_length_817_cov_11453.218841_1 [807 - 1238] (ORF crosses the breakpoint) 
+35_NODE_938_length_813_cov_0.241983_3 [1282 - 752] (REVERSE SENSE) (ORF crosses the breakpoint) 
+35_NODE_996_length_780_cov_0.245023_1 [759 - 151] (REVERSE SENSE) 
+36_NODE_1523_length_633_cov_0.407115_1 [520 - 819] (ORF crosses the breakpoint) 
+36_NODE_165_length_1052_cov_0.545946_1 [981 - 1289] (ORF crosses the breakpoint) 
+36_NODE_21_length_2692_cov_64.967641_4 [1491 - 2525] 
+36_NODE_2127_length_592_cov_1.774194_1 [553 - 1383] (ORF crosses the breakpoint) 
+36_NODE_2199_length_589_cov_0.406926_1 [1075 - 494] (REVERSE SENSE) (ORF crosses the breakpoint) 
+36_NODE_22_length_2684_cov_1.155651_2 [634 - 1845] 
+36_NODE_24_length_2381_cov_0.700532_12 [2590 - 2066] (REVERSE SENSE) (ORF crosses the breakpoint) 
+36_NODE_26_length_2058_cov_3.207147_3 [1850 - 765] (REVERSE SENSE) 
+36_NODE_27_length_2038_cov_0.799581_6 [1179 - 445] (REVERSE SENSE) 
+36_NODE_2748_length_563_cov_0.412844_1 [553 - 987] (ORF crosses the breakpoint) 
+36_NODE_30_length_1881_cov_0.786773_1 [1752 - 2528] (ORF crosses the breakpoint) 
+36_NODE_32_length_1856_cov_11.096588_2 [1665 - 763] (REVERSE SENSE) 
+36_NODE_33_length_1852_cov_9.238261_2 [1678 - 773] (REVERSE SENSE) 
+36_NODE_34_length_1845_cov_4.685681_1 [677 - 1579] 
+36_NODE_397_length_894_cov_0.456323_1 [1733 - 843] (REVERSE SENSE) (ORF crosses the breakpoint) 
+36_NODE_474_length_845_cov_2.442897_4 [843 - 526] (REVERSE SENSE) 
+36_NODE_4898_length_501_cov_0.430481_1 [989 - 492] (REVERSE SENSE) (ORF crosses the breakpoint) 
+36_NODE_52_length_1457_cov_2.136090_1 [46 - 948] 
+36_NODE_720_length_753_cov_0.322684_1 [714 - 1436] (ORF crosses the breakpoint) 
+36_NODE_94_length_1256_cov_0.465899_4 [1275 - 442] (REVERSE SENSE) (ORF crosses the breakpoint) 
+37_NODE_109_length_939_cov_0.529557_2 [1022 - 582] (REVERSE SENSE) (ORF crosses the breakpoint) 
+37_NODE_193_length_732_cov_0.606612_1 [466 - 792] (ORF crosses the breakpoint) 
+37_NODE_221_length_692_cov_0.605310_1 [980 - 585] (REVERSE SENSE) (ORF crosses the breakpoint) 
+37_NODE_23_length_1765_cov_1.302808_5 [935 - 0] (REVERSE SENSE) 
+37_NODE_241_length_660_cov_0.489681_2 [592 - 1200] (ORF crosses the breakpoint) 
+37_NODE_40_length_1354_cov_0.511002_2 [1299 - 1631] (ORF crosses the breakpoint) 
+37_NODE_60_length_1161_cov_0.702128_2 [1144 - 257] (REVERSE SENSE) 
+37_NODE_71_length_1082_cov_0.507853_2 [977 - 192] (REVERSE SENSE) 
+38_NODE_140_length_1859_cov_2.265589_1 [818 - 1723] 
+38_NODE_141_length_1848_cov_1231.317257_4 [1238 - 393] (REVERSE SENSE) 
+38_NODE_144_length_1771_cov_0.413017_4 [1429 - 1112] (REVERSE SENSE) 
+38_NODE_159_length_1544_cov_1.272406_1 [1505 - 2068] (ORF crosses the breakpoint) 
+38_NODE_178_length_1335_cov_0.625000_2 [776 - 1336] (ORF crosses the breakpoint) 
+38_NODE_189_length_1269_cov_0.521016_3 [1469 - 792] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_205_length_1173_cov_0.340344_1 [1145 - 2068] (ORF crosses the breakpoint) 
+38_NODE_207_length_1163_cov_0.588803_4 [507 - 91] (REVERSE SENSE) 
+38_NODE_242_length_1010_cov_0.398641_5 [1801 - 962] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_252_length_987_cov_0.381395_2 [1085 - 642] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_302_length_903_cov_49851.400773_3 [1718 - 819] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_322_length_877_cov_0.382667_2 [62 - 964] (ORF crosses the breakpoint) 
+38_NODE_323_length_873_cov_0.760054_2 [614 - 949] (ORF crosses the breakpoint) 
+38_NODE_329_length_859_cov_0.592896_2 [184 - 924] (ORF crosses the breakpoint) 
+38_NODE_339_length_823_cov_0.510057_2 [1083 - 664] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_390_length_738_cov_0.420622_4 [745 - 59] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_495_length_618_cov_0.360489_1 [562 - 65] (REVERSE SENSE) 
+38_NODE_512_length_604_cov_0.433962_3 [668 - 87] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_582_length_563_cov_0.561927_2 [1131 - 235] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_643_length_538_cov_10358.527981_1 [343 - 696] (ORF crosses the breakpoint) 
+38_NODE_685_length_521_cov_0.408629_1 [1102 - 365] (REVERSE SENSE) (ORF crosses the breakpoint) 
+38_NODE_81_length_3779_cov_6.968237_6 [3267 - 2143] (REVERSE SENSE) 
+39_NODE_104_length_1622_cov_1.094983_4 [1269 - 367] (REVERSE SENSE) 
+39_NODE_1103_length_849_cov_0.447368_3 [879 - 322] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_1236_length_817_cov_0.498551_2 [66 - 377] 
+39_NODE_1309_length_802_cov_0.404444_2 [760 - 1158] (ORF crosses the breakpoint) 
+39_NODE_142_length_1448_cov_0.503407_2 [329 - 1411] 
+39_NODE_158_length_1426_cov_3.687452_2 [594 - 1469] (ORF crosses the breakpoint) 
+39_NODE_1938_length_702_cov_0.360000_1 [632 - 1033] (ORF crosses the breakpoint) 
+39_NODE_200_length_1353_cov_0.623165_5 [1214 - 486] (REVERSE SENSE) 
+39_NODE_2077_length_690_cov_0.495560_1 [429 - 869] (ORF crosses the breakpoint) 
+39_NODE_21_length_2489_cov_1.793819_4 [492 - 1523] 
+39_NODE_232_length_1304_cov_3.244690_2 [1251 - 2273] (ORF crosses the breakpoint) 
+39_NODE_24_length_2337_cov_1.746154_4 [2614 - 1391] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_26_length_2306_cov_2.182653_2 [1098 - 2201] 
+39_NODE_2648_length_639_cov_1.000000_1 [203 - 667] (ORF crosses the breakpoint) 
+39_NODE_2784_length_630_cov_0.290258_1 [118 - 660] (ORF crosses the breakpoint) 
+39_NODE_28_length_2296_cov_1.269710_6 [3162 - 2275] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_3071_length_611_cov_0.564050_1 [637 - 20] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_39_length_2086_cov_0.963757_1 [547 - 74] (REVERSE SENSE) 
+39_NODE_41_length_2083_cov_360.567996_1 [3 - 953] 
+39_NODE_414_length_1129_cov_0.972056_2 [1145 - 201] (REVERSE SENSE) (ORF crosses the breakpoint) 
+39_NODE_4259_length_556_cov_0.400932_1 [540 - 1667] (ORF crosses the breakpoint) 
+39_NODE_43_length_2054_cov_2.338869_4 [1747 - 890] (REVERSE SENSE) 
+39_NODE_45_length_2033_cov_4.659496_2 [1786 - 905] (REVERSE SENSE) 
+39_NODE_50_length_2010_cov_4.558683_3 [864 - 1712] 
+39_NODE_51_length_1926_cov_2.062257_6 [1141 - 368] (REVERSE SENSE) 
+39_NODE_54_length_1899_cov_16.388262_2 [777 - 1703] 
+39_NODE_542_length_1036_cov_0.529153_4 [1000 - 230] (REVERSE SENSE) 
+39_NODE_6_length_3373_cov_1.016020_5 [2400 - 778] (REVERSE SENSE) 
+39_NODE_62_length_1858_cov_1.236280_1 [33 - 887] 
+39_NODE_971_length_889_cov_0.338583_2 [962 - 429] (REVERSE SENSE) (ORF crosses the breakpoint) 
+40_NODE_52_length_1899_cov_2.570542_5 [1682 - 756] (REVERSE SENSE) 
+41_NODE_101_length_2341_cov_3.574074_1 [164 - 601] 
+41_NODE_105_length_2289_cov_1.775208_1 [1220 - 2197] 
+41_NODE_110_length_2256_cov_37.775073_1 [61 - 975] 
+41_NODE_1146_length_900_cov_0.318241_2 [537 - 902] (ORF crosses the breakpoint) 
+41_NODE_117_length_2219_cov_1.395793_3 [1141 - 1983] 
+41_NODE_128_length_2138_cov_1.425659_3 [2133 - 1231] (REVERSE SENSE) 
+41_NODE_131_length_2114_cov_13.025667_5 [1286 - 540] (REVERSE SENSE) 
+41_NODE_139_length_2070_cov_1.429233_5 [1019 - 105] (REVERSE SENSE) 
+41_NODE_1415_length_829_cov_1.254986_1 [1170 - 655] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_150_length_2023_cov_33.672468_1 [157 - 1053] 
+41_NODE_1557_length_799_cov_0.802083_2 [1168 - 773] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_1562_length_798_cov_0.602086_1 [810 - 226] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_168_length_1930_cov_6.891292_2 [836 - 1762] 
+41_NODE_171_length_1900_cov_1.472081_1 [852 - 1730] 
+41_NODE_181_length_1867_cov_224.179885_3 [1219 - 158] (REVERSE SENSE) 
+41_NODE_191_length_1787_cov_0.519880_4 [1853 - 927] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_2010_length_733_cov_0.414191_2 [719 - 1072] (ORF crosses the breakpoint) 
+41_NODE_208_length_1718_cov_0.687618_7 [1805 - 855] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_2086_length_725_cov_0.301003_2 [822 - 289] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_214_length_1700_cov_0.632549_2 [594 - 1313] 
+41_NODE_220_length_1685_cov_0.583440_2 [756 - 31] (REVERSE SENSE) 
+41_NODE_2242_length_709_cov_0.276632_4 [861 - 88] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_2494_length_687_cov_0.335714_1 [302 - 823] (ORF crosses the breakpoint) 
+41_NODE_261_length_1561_cov_0.587866_3 [2165 - 708] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_362_length_1341_cov_0.621911_2 [1214 - 2140] (ORF crosses the breakpoint) 
+41_NODE_4097_length_590_cov_0.544276_1 [577 - 882] (ORF crosses the breakpoint) 
+41_NODE_4327_length_581_cov_0.392070_1 [935 - 576] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_44_length_3750_cov_2.170577_6 [3279 - 2155] (REVERSE SENSE) 
+41_NODE_4721_length_565_cov_4.984018_2 [352 - 41] (REVERSE SENSE) 
+41_NODE_48_length_3399_cov_5.013142_3 [3069 - 2050] (REVERSE SENSE) 
+41_NODE_5126_length_552_cov_0.877647_2 [1655 - 1] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_5412_length_543_cov_0.608173_1 [517 - 819] (ORF crosses the breakpoint) 
+41_NODE_5732_length_534_cov_0.437346_1 [302 - 604] (ORF crosses the breakpoint) 
+41_NODE_574_length_1136_cov_4.070367_1 [1415 - 1005] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_583_length_1129_cov_9.361277_1 [1942 - 1115] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_5970_length_528_cov_0.401496_2 [479 - 1003] (ORF crosses the breakpoint) 
+41_NODE_62_length_2846_cov_5.924972_3 [1697 - 2857] (ORF crosses the breakpoint) 
+41_NODE_661_length_1071_cov_0.941737_1 [295 - 1110] (ORF crosses the breakpoint) 
+41_NODE_7001_length_504_cov_0.236074_1 [429 - 926] (ORF crosses the breakpoint) 
+41_NODE_7082_length_502_cov_0.549333_1 [1061 - 3] (REVERSE SENSE) (ORF crosses the breakpoint) 
+41_NODE_73_length_2680_cov_0.769683_3 [1594 - 2751] (ORF crosses the breakpoint) 
+41_NODE_80_length_2599_cov_0.840615_1 [1657 - 503] (REVERSE SENSE) 
+41_NODE_82_length_2577_cov_1.478776_2 [219 - 1175] 
+41_NODE_91_length_2487_cov_0.736017_3 [872 - 1843] 
+41_NODE_94_length_2449_cov_0.837640_1 [1410 - 310] (REVERSE SENSE) 
+41_NODE_958_length_958_cov_0.578821_1 [210 - 1103] (ORF crosses the breakpoint) 
+42_NODE_114_length_1232_cov_0.377376_1 [413 - 967] 
+42_NODE_121_length_1215_cov_0.455882_3 [2060 - 1188] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_131_length_1177_cov_0.677143_3 [152 - 1009] 
+42_NODE_152_length_1091_cov_2.508299_3 [1969 - 977] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_170_length_1039_cov_2.844298_2 [693 - 1076] (ORF crosses the breakpoint) 
+42_NODE_188_length_995_cov_0.600230_3 [1070 - 621] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_25_length_3100_cov_103.283216_4 [3017 - 1944] (REVERSE SENSE) 
+42_NODE_27_length_2944_cov_1.456869_4 [2829 - 1864] (REVERSE SENSE) 
+42_NODE_274_length_885_cov_0.414248_1 [222 - 650] 
+42_NODE_295_length_857_cov_0.467123_2 [864 - 421] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_32_length_2853_cov_1.150037_7 [1702 - 629] (REVERSE SENSE) 
+42_NODE_346_length_805_cov_3.107670_1 [730 - 140] (REVERSE SENSE) 
+42_NODE_35_length_2507_cov_0.539076_3 [2133 - 3308] (ORF crosses the breakpoint) 
+42_NODE_371_length_782_cov_0.483969_2 [188 - 832] (ORF crosses the breakpoint) 
+42_NODE_388_length_769_cov_0.386293_1 [389 - 850] (ORF crosses the breakpoint) 
+42_NODE_41_length_2170_cov_1.998042_7 [1026 - 169] (REVERSE SENSE) 
+42_NODE_42_length_2160_cov_0.921790_2 [1234 - 2214] (ORF crosses the breakpoint) 
+42_NODE_432_length_744_cov_0.354943_2 [204 - 869] (ORF crosses the breakpoint) 
+42_NODE_484_length_709_cov_0.513746_2 [83 - 733] (ORF crosses the breakpoint) 
+42_NODE_50_length_2003_cov_4.488806_5 [1817 - 819] (REVERSE SENSE) 
+42_NODE_52_length_1896_cov_3.175240_5 [1835 - 909] (REVERSE SENSE) 
+42_NODE_53_length_1893_cov_1.935447_2 [2630 - 1872] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_57_length_1876_cov_0.399085_4 [1896 - 1177] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_61_length_1846_cov_381.680047_1 [65 - 967] 
+42_NODE_77_length_1591_cov_0.471995_2 [574 - 1653] (ORF crosses the breakpoint) 
+42_NODE_80_length_1549_cov_0.520394_3 [1349 - 261] (REVERSE SENSE) 
+42_NODE_81_length_1462_cov_3.752809_1 [13 - 654] 
+42_NODE_828_length_600_cov_0.369979_2 [604 - 8] (REVERSE SENSE) (ORF crosses the breakpoint) 
+42_NODE_87_length_1429_cov_18.598310_4 [1121 - 159] (REVERSE SENSE) 
+42_NODE_921_length_583_cov_0.635965_1 [583 - 912] (ORF crosses the breakpoint) 
+42_NODE_931_length_582_cov_0.298901_1 [551 - 132] (REVERSE SENSE) 
+42_NODE_96_length_1358_cov_4.363119_3 [1960 - 1301] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1163_length_1175_cov_0.616412_2 [2139 - 1129] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1179_length_1168_cov_0.586936_6 [1498 - 1157] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1239_length_1105_cov_0.560327_2 [3 - 407] 
+43_NODE_1260_length_1087_cov_0.530208_5 [2279 - 1086] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1269_length_1076_cov_0.512118_2 [2158 - 1064] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1303_length_1050_cov_0.365114_2 [127 - 804] 
+43_NODE_1308_length_1045_cov_0.513072_2 [1047 - 535] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1318_length_1040_cov_0.349398_4 [1068 - 316] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1383_length_989_cov_0.472158_6 [1423 - 608] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1477_length_952_cov_0.389091_5 [1607 - 927] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1485_length_948_cov_0.420219_2 [1431 - 928] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1497_length_944_cov_3753.842105_1 [942 - 40] (REVERSE SENSE) 
+43_NODE_1544_length_922_cov_0.345912_3 [1397 - 918] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1635_length_879_cov_0.272606_2 [888 - 13] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1667_length_864_cov_34846.616011_1 [151 - 732] 
+43_NODE_1803_length_811_cov_0.637427_2 [812 - 375] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1809_length_809_cov_0.651026_1 [3 - 461] 
+43_NODE_1830_length_803_cov_0.443787_3 [1025 - 621] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1848_length_797_cov_0.544776_4 [854 - 255] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_1964_length_760_cov_37.036335_2 [189 - 794] (ORF crosses the breakpoint) 
+43_NODE_1971_length_758_cov_4.778130_2 [91 - 792] (ORF crosses the breakpoint) 
+43_NODE_2023_length_745_cov_0.359223_1 [714 - 349] (REVERSE SENSE) 
+43_NODE_2062_length_735_cov_0.264803_4 [744 - 427] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_2306_length_676_cov_0.418944_2 [223 - 675] 
+43_NODE_2338_length_670_cov_1.543278_1 [800 - 339] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_2370_length_665_cov_0.256506_1 [662 - 1462] (ORF crosses the breakpoint) 
+43_NODE_2607_length_616_cov_0.376278_2 [1143 - 469] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_2868_length_573_cov_0.257848_3 [572 - 45] (REVERSE SENSE) 
+43_NODE_2898_length_568_cov_0.362812_2 [814 - 506] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_3032_length_550_cov_0.607565_3 [922 - 461] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_3099_length_540_cov_0.225182_1 [597 - 61] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_3308_length_516_cov_0.249357_2 [1 - 1548] (ORF crosses the breakpoint) 
+43_NODE_332_length_4201_cov_0.692194_7 [3087 - 1957] (REVERSE SENSE) 
+43_NODE_3336_length_512_cov_0.654545_2 [341 - 36] (REVERSE SENSE) 
+43_NODE_344_length_4020_cov_2.474955_5 [1410 - 2225] 
+43_NODE_348_length_3978_cov_3.861854_1 [1980 - 2948] 
+43_NODE_380_length_3594_cov_3.648111_1 [3420 - 2299] (REVERSE SENSE) 
+43_NODE_385_length_3530_cov_0.724949_1 [1402 - 2259] 
+43_NODE_391_length_3452_cov_0.930827_9 [4416 - 3322] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_398_length_3365_cov_1.078752_7 [1469 - 510] (REVERSE SENSE) 
+43_NODE_438_length_3110_cov_0.891720_1 [44 - 1030] 
+43_NODE_439_length_3106_cov_1.115475_2 [675 - 1436] 
+43_NODE_448_length_3038_cov_2.093439_9 [1685 - 306] (REVERSE SENSE) 
+43_NODE_451_length_3032_cov_2.917728_9 [1748 - 702] (REVERSE SENSE) 
+43_NODE_453_length_3004_cov_1.990268_9 [1362 - 310] (REVERSE SENSE) 
+43_NODE_454_length_2995_cov_2.472455_5 [2756 - 1491] (REVERSE SENSE) 
+43_NODE_458_length_2960_cov_4.869396_8 [1997 - 813] (REVERSE SENSE) 
+43_NODE_459_length_2954_cov_65.967457_2 [169 - 1026] 
+43_NODE_464_length_2927_cov_0.683929_6 [1390 - 335] (REVERSE SENSE) 
+43_NODE_465_length_2923_cov_0.446352_1 [201 - 1439] 
+43_NODE_467_length_2919_cov_1.647923_2 [116 - 1144] 
+43_NODE_476_length_2850_cov_6.681223_5 [2832 - 1885] (REVERSE SENSE) 
+43_NODE_480_length_2823_cov_1.291543_5 [2065 - 1295] (REVERSE SENSE) 
+43_NODE_502_length_2716_cov_2.292777_3 [1547 - 2398] 
+43_NODE_505_length_2683_cov_3.922926_6 [2514 - 3905] (ORF crosses the breakpoint) 
+43_NODE_520_length_2625_cov_0.816653_6 [2488 - 1640] (REVERSE SENSE) 
+43_NODE_522_length_2616_cov_7.231418_6 [1403 - 489] (REVERSE SENSE) 
+43_NODE_552_length_2496_cov_3.280709_1 [161 - 1168] 
+43_NODE_555_length_2489_cov_1.287045_10 [1648 - 605] (REVERSE SENSE) 
+43_NODE_559_length_2477_cov_0.585532_1 [571 - 948] 
+43_NODE_561_length_2474_cov_14317.948019_1 [591 - 1493] 
+43_NODE_563_length_2473_cov_1.506820_5 [2239 - 1304] (REVERSE SENSE) 
+43_NODE_574_length_2432_cov_1.131020_3 [1022 - 2020] 
+43_NODE_579_length_2409_cov_1.127520_2 [47 - 1087] 
+43_NODE_587_length_2388_cov_3.624945_6 [2041 - 1115] (REVERSE SENSE) 
+43_NODE_589_length_2379_cov_1.515098_4 [2079 - 1195] (REVERSE SENSE) 
+43_NODE_592_length_2370_cov_54.913955_2 [289 - 1164] 
+43_NODE_595_length_2335_cov_9.186594_3 [1870 - 2262] 
+43_NODE_598_length_2330_cov_642.227871_4 [1207 - 1605] 
+43_NODE_610_length_2301_cov_0.741950_2 [462 - 1355] 
+43_NODE_611_length_2300_cov_18.780028_3 [1401 - 493] (REVERSE SENSE) 
+43_NODE_615_length_2284_cov_0.606398_2 [590 - 1486] 
+43_NODE_622_length_2255_cov_0.514098_2 [2233 - 2943] (ORF crosses the breakpoint) 
+43_NODE_625_length_2242_cov_0.808983_3 [1310 - 243] (REVERSE SENSE) 
+43_NODE_628_length_2223_cov_2.530057_2 [2091 - 1195] (REVERSE SENSE) 
+43_NODE_633_length_2215_cov_1.062739_5 [2237 - 1284] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_640_length_2190_cov_4.823558_6 [958 - 71] (REVERSE SENSE) 
+43_NODE_643_length_2183_cov_1.016537_2 [1101 - 2024] 
+43_NODE_649_length_2170_cov_1.583456_1 [257 - 1162] 
+43_NODE_653_length_2164_cov_2.859107_2 [343 - 1284] 
+43_NODE_684_length_2073_cov_2.693217_4 [1700 - 666] (REVERSE SENSE) 
+43_NODE_687_length_2064_cov_0.556531_2 [658 - 1641] 
+43_NODE_692_length_2047_cov_1.539583_2 [208 - 1296] 
+43_NODE_695_length_2033_cov_0.844176_3 [716 - 1642] 
+43_NODE_717_length_1958_cov_0.516111_3 [1058 - 1459] 
+43_NODE_719_length_1949_cov_2.052689_3 [828 - 1904] 
+43_NODE_727_length_1895_cov_3.740950_4 [1405 - 3126] (ORF crosses the breakpoint) 
+43_NODE_728_length_1894_cov_4.281268_2 [1902 - 1021] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_737_length_1884_cov_2.036995_2 [1684 - 2583] (ORF crosses the breakpoint) 
+43_NODE_743_length_1859_cov_17.672633_2 [1750 - 2742] (ORF crosses the breakpoint) 
+43_NODE_746_length_1848_cov_0.712958_4 [2873 - 1815] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_753_length_1839_cov_0.610397_2 [1829 - 960] (REVERSE SENSE) 
+43_NODE_784_length_1772_cov_0.551368_4 [1844 - 885] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_812_length_1713_cov_0.441992_1 [1355 - 441] (REVERSE SENSE) 
+43_NODE_817_length_1699_cov_3660.980916_2 [1450 - 377] (REVERSE SENSE) 
+43_NODE_879_length_1554_cov_43.594254_6 [1591 - 1166] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_890_length_1522_cov_0.557706_2 [1067 - 2482] (ORF crosses the breakpoint) 
+43_NODE_913_length_1489_cov_0.773128_4 [1813 - 950] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_921_length_1470_cov_0.483246_2 [1832 - 1446] (REVERSE SENSE) (ORF crosses the breakpoint) 
+43_NODE_950_length_1432_cov_0.748659_1 [1110 - 1715] (ORF crosses the breakpoint) 
+43_NODE_957_length_1420_cov_0.375870_1 [705 - 2852] (ORF crosses the breakpoint) 
+44_NODE_1728_length_640_cov_3.756335_2 [998 - 636] (REVERSE SENSE) (ORF crosses the breakpoint) 
+44_NODE_2244_length_600_cov_0.336152_1 [905 - 462] (REVERSE SENSE) (ORF crosses the breakpoint) 
+44_NODE_2286_length_596_cov_4.458422_1 [1209 - 571] (REVERSE SENSE) (ORF crosses the breakpoint) 
+44_NODE_2965_length_556_cov_1.913753_2 [742 - 317] (REVERSE SENSE) (ORF crosses the breakpoint) 
+44_NODE_3200_length_546_cov_0.988067_1 [531 - 223] (REVERSE SENSE) 
+44_NODE_59_length_1910_cov_1.364554_4 [1098 - 136] (REVERSE SENSE) 
+44_NODE_757_length_791_cov_108.695783_2 [789 - 397] (REVERSE SENSE) 
+44_NODE_91_length_1565_cov_0.525035_2 [1564 - 977] (REVERSE SENSE) 
+45_NODE_11_length_1898_cov_27.413890_5 [1123 - 197] (REVERSE SENSE) 
+45_NODE_12_length_1893_cov_158.592299_1 [1881 - 2681] (ORF crosses the breakpoint) 
+45_NODE_123_length_991_cov_0.534722_3 [1050 - 403] (REVERSE SENSE) (ORF crosses the breakpoint) 
+45_NODE_6741_length_513_cov_0.352332_2 [511 - 2] (REVERSE SENSE) 
+45_NODE_765_length_738_cov_0.364975_1 [156 - 584] 
+5_NODE_18_length_2329_cov_121.860127_1 [103 - 525] 
+5_NODE_20_length_2106_cov_12.964629_4 [2074 - 1328] (REVERSE SENSE) 
+6_NODE_52_length_2040_cov_128.657606_1 [1783 - 1142] (REVERSE SENSE) 
+6_NODE_527_length_896_cov_4552.548765_3 [527 - 57] (REVERSE SENSE) 
+6_NODE_72_length_1705_cov_3.356147_2 [299 - 1414] 
+6_NODE_726_length_793_cov_205.018018_2 [608 - 138] (REVERSE SENSE) 
+8_NODE_102_length_1418_cov_1.041053_4 [1323 - 361] (REVERSE SENSE) 
+8_NODE_21_length_2422_cov_2.119826_8 [1374 - 334] (REVERSE SENSE) 
+8_NODE_27_length_2307_cov_7.151376_4 [2074 - 1673] (REVERSE SENSE) 
+8_NODE_56_length_1765_cov_0.855311_1 [1439 - 1765] 
+8_NODE_61_length_1709_cov_0.591024_3 [1202 - 219] (REVERSE SENSE) 
+8_NODE_66_length_1642_cov_0.335314_3 [1483 - 1043] (REVERSE SENSE) 
+8_NODE_73_length_1610_cov_1.200944_5 [1662 - 757] (REVERSE SENSE) (ORF crosses the breakpoint) 
+8_NODE_887_length_592_cov_0.778495_1 [581 - 1147] (ORF crosses the breakpoint) 
+9_NODE_10_length_2909_cov_5.100647_1 [1004 - 2221] 
+9_NODE_11_length_2895_cov_6.536488_1 [785 - 1729] 
+9_NODE_115_length_914_cov_0.533672_1 [1818 - 892] (REVERSE SENSE) (ORF crosses the breakpoint) 
+9_NODE_15_length_2323_cov_4.453552_4 [1777 - 800] (REVERSE SENSE) 
+9_NODE_20_length_1897_cov_16.245763_2 [775 - 1701] 
