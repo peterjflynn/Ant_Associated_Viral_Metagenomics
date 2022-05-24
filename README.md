@@ -18,7 +18,7 @@ Phylogenetics Pipeline <br>
 [ProtTest v3.4.2](https://github.com/ddarriba/prottest3) <br>
 [EMBOSS 6.6.0](http://emboss.sourceforge.net/download/) <br>
 [MAFFT v.7.309](https://mafft.cbrc.jp/alignment/software/) <br>
-[TrimAL v1.3](http://trimal.cgenomics.org/downloads)
+[TrimAl v1.3](http://trimal.cgenomics.org/downloads)
 [Geneious 10.2.3](https://www.geneious.com/) <br>
 [RAxML v8.2.11](https://cme.h-its.org/exelixis/web/software/raxml/) <br>
 [R v4.0.3](https://www.r-project.org/) <br>
