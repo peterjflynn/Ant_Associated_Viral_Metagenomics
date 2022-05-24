@@ -18,7 +18,7 @@ Phylogenetics Pipeline <br>
 [ProtTest v3.4.2](https://github.com/ddarriba/prottest3) <br>
 [EMBOSS 6.6.0](http://emboss.sourceforge.net/download/) <br>
 [MAFFT v.7.309](https://mafft.cbrc.jp/alignment/software/) <br>
-[TrimAl v1.2](http://trimal.cgenomics.org/downloads)
+[TrimAl v1.2](http://trimal.cgenomics.org/downloads) <br>
 [Geneious 10.2.3](https://www.geneious.com/) <br>
 [RAxML v8.2.11](https://cme.h-its.org/exelixis/web/software/raxml/) <br>
 [R v4.0.3](https://www.r-project.org/) <br>
@@ -213,7 +213,7 @@ This portion of the workflow takes only the viral contigs which had most similar
 
 1. extract CRESS viruses from all contigs
 ```sh
-awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRESS_viruses.txt /data/contigs/final_viruses.fasta > /Phylogenetics_data/CRESS_viruses.fasta
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRESS_viruses.txt /Phylogenetics_data/final_viruses.fasta > /Phylogenetics_data/CRESS_viruses.fasta
 ```
 
 2. CRESS viruses using EMBOSS for circular viruses 
@@ -225,14 +225,14 @@ getorf -minsize 300 -circular Y  -sequence /Phylogenetics_data/CRESS_viruses.fas
 /diamond/diamond blastp -p "40" -d /data/RefSeq_protein_viral_database.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /Phylogenetics_data/CRESS_viruses_proteins_blastp.out -q /Phylogenetics_data/CRESS_viruses_proteins.fasta &
 ```
 
-4. extract Rep sequences for CRESS viruses, only included viruses with complete CRESS genomes (n=170). 
+4. Extract Rep sequences for CRESS viruses, only included viruses with complete CRESS genomes (n=170). 
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRESS_genome_rep_proteins.txt /Phylogenetics_data/CRESS_viruses_proteins.fasta > /Phylogenetics_data/CRESS_Rep_ant_proteins.fasta 
 ```
 
 5. Download all CRESS viral Replication protein sequences from NCBI greater than 150 amino acids in length [here](https://www.ncbi.nlm.nih.gov/protein/?term=txid2732416%5BOrganism%5D+rep). 
 
-6. Since there are a lot of sequence replicates in NCBI, I used Geneious to remove duplicates the NCBI CRESS Rep sequences and manually removed any spurious protein sequences. 
+#6. Since there are a lot of sequence replicates in NCBI, I used Geneious to remove duplicates the NCBI CRESS Rep sequences and manually removed any spurious protein sequences. 
 
 **PICTURES**
 
@@ -242,21 +242,21 @@ awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRE
 XXXX 
 ```
 
-8. Manually trim aligned file using Geneious for uniform alignments. After making an alignment, it is necessary to inspect and trim it to remove non-homologous sites. Additionally, gaps and ambiguously aligned regions were stripped using trimAL. Save alignment as PHYLIP. 
+8. Manually trim aligned file using Geneious for uniform alignments. After making an alignment, it is necessary to inspect and trim it to remove non-homologous sites. Additionally, gaps and ambiguously aligned regions can be stripped using trimAL (though always double check automatic trimmers since they can give you very weird results). For the CRESS alignment I did not end up using the trimAL alignment due to it trimming out most of the signal. Save alignment as PHYLIP file. 
 ```sh
-trimal -in /Phylogenetics_data/CRESS_refseq_alignment.phy -out /Phylogenetics_data/CRESS_refseq_alignment_trimal.phy -fasta -automated1
+trimal -in /Phylogenetics_data/CRESS_alignment.phy -out /Phylogenetics_data/CRESS_alignment_trimal.phy -phylip -gt 0.190
 ```
 
-9. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment.
+9. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment. For this alignment the best fit protein substitution model was **LG + G**
 ```sh
-java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_refseq_alignment_trimal.phy -all-matrices -all-distributions -o /Phylogenetics_data/CRESS_refseq.log -threads 30 &
+java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_alignment.phy -all-matrices -all-distributions -o /Phylogenetics_data/CRESS_ProtTest3.log -threads 30 &
 ```
 
-10. RAxML 
+10. Infer the maximum likelihood phylogeny using the amino acid alignment with RAxML and was evaluated with 500 bootstrap replicates.
 ```sh
-raxmlHPC-PTHREADS -n CRESS_refseq -s prottest-3.4.2/Phylogenetics_data/CRESS_refseq_alignment.phy -m PROTGAMMALG -f a -p 194955 -x 12345 -# 500 -T 50 &
+raxmlHPC-PTHREADS -n CRESS -s /Phylogenetics_data/CRESS_alignment.phy -m PROTGAMMALG -f a -p 194955 -x 12345 -# 500 -T 50 &
 ```
-11. ITOL (pictures) with RAxML output
+# 11. ITOL (pictures) with RAxML output
 
 How to prune tree to just CRESS samples in ITOL 
 
@@ -391,7 +391,7 @@ text(pat.bar, par("usr")[3] - 0.001, srt = 330, adj = 0, labels = colnames(SQres
 arrows(pat.bar, phi.mean, pat.bar, phi.UCI, length= 0.05, angle=90)
 abline(a=median(phi.mean), b=0, lty=2, xpd=FALSE) #draws a line across the median residual value
 ```
-14. JANE (in picture format )
+#14. JANE (in picture format )
 
 15. To test if specific ecological traits of the ant host species are structuring the phylogeny of CRESS viruses, I used Bayesian tip-association significance testing (BaTS). The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
 
