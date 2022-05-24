@@ -1,4 +1,4 @@
-# Ant Associated Viral Metagenomics Workflow
+# Ant-Associated Viral Metagenomics Workflow
 ## Dependencies 
 [Java](https://www.java.com/en/) <br>
 [Perl](https://www.perl.org/) <br>
@@ -18,11 +18,12 @@ Phylogenetics Pipeline <br>
 [ProtTest v3.4.2](https://github.com/ddarriba/prottest3) <br>
 [EMBOSS 6.6.0](http://emboss.sourceforge.net/download/) <br>
 [MAFFT v.7.309](https://mafft.cbrc.jp/alignment/software/) <br>
-[TrimAl v1.3](http://trimal.cgenomics.org/downloads)
+[TrimAl v1.2](http://trimal.cgenomics.org/downloads)
 [Geneious 10.2.3](https://www.geneious.com/) <br>
 [RAxML v8.2.11](https://cme.h-its.org/exelixis/web/software/raxml/) <br>
 [R v4.0.3](https://www.r-project.org/) <br>
 [BaTS](https://mybiosoftware.com/tag/bats) <br>
+
 ## Bioinformatics Pipeline
 This workflow starts with raw paired-end HiSeq data in demultiplexed FASTQ formated assumed to be located within a folder called raw_seq. For this pipeline I will be illustrating with sequences from a single sample (*Atta cephalotes*), a leafcutter ant species. I used this as the example since this sample had the fewest number of viral contigs found within our dataset, so the file sizes are a bit smaller.
 1. Run fastqc for manual inspection of the quality of the sequences 
@@ -30,59 +31,64 @@ This workflow starts with raw paired-end HiSeq data in demultiplexed FASTQ forma
 mkdir fastqc_out
 fastqc -t 4 raw_data/* -o /fastqc_out/
 ```
+
 2.Concatenate the forward and the reverse reads from multiple lanes of sequencing together. 
 ```sh
-cat /raw_data/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L004_R1.fastq.gz /raw_data/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L005_R1.fastq.gz /raw_data/15A_TTGCCTAG-TAAGTGGT-AHWYVLBBXX_L005_R1.fastq.gz > /raw_data/concat_data/15A_concatenated_R1.fastq.gz
+cat /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L004_R1.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L005_R1.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHWYVLBBXX_L005_R1.fastq.gz > /raw_data/concat_data/Aceph_concatenated_R1.fastq.gz
 
-cat /raw_data/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L004_R2.fastq.gz /raw_data/15A_TTGCCTAG-TAAGTGGT-AHNFFJBBXX_L005_R2.fastq.gz /raw_data/15A_TTGCCTAG-TAAGTGGT-AHWYVLBBXX_L005_R2.fastq.gz > /data/15A_concatenated_R2.fastq.gz
+cat /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L004_R2.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L005_R2.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHWYVLBBXX_L005_R1.fastq.gz > /raw_data/concat_data/Aceph_concatenated_R2.fastq.gz
 ```
 
-```
-###![Happy Christmas](FastQC.png)
-
-3. Trim the contactenated reads to remove adapters and low quality reads using Trimmomatic
+3. Trim the contactenated reads to remove adapters and low quality reads using Trimmomatic.
 ```sh
 java -jar Trimmomatic-0.35/trimmomatic-0.35.jar PE -phred33 \
-/data/15A_concatenated_R1.fastq.gz /data/15A_concatenated_R2.fastq.gz  \
-/data/15_pe1.fq /data/15_unp1.fq /data/15_pe2.fq /data/15_unp2.fq \
+/raw_data/concat_data/Aceph_concatenated_R1.fastq.gz /raw_data/concat_data/Aceph_concatenated_R2.fastq.gz  \
+/raw_data/concat_data/Aceph_pe1.fq /raw_data/concat_data/Aceph_unp1.fq /raw_data/concat_data/Aceph_pe2.fq /raw_data/concat_data/Aceph_unp2.fq \
 ILLUMINACLIP:Trimmomatic-0.35/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 ```
 
- 4. Builds ant species specific genome database in bowtie2. For this particular sample it was Cephalotes varians.
+ 4. Build ant species specific genome database in bowtie2. For this particular sample I used the *Atta cephalotes* downloaded from NCBI.
 ```sh
-bowtie2-build /data/A_cephalotes_genome.fasta /data/Aceph
+bowtie2-build /data/Aceph/A_cephalotes_genome.fasta /data/Aceph/Aceph
 
 ```
-5. Using bowtie2, map ant genome to paired reads, unmapped reads are carried through to the assembly
+5.  Map ant genome to paired reads using Bowtie2, unmapped reads are carried through to the assembly.
 ```sh
-bowtie2 -t -x /data/Aceph -1 32_pe1.fq  -2 32_pe2.fq --un-conc /data/32_conc_unmapped.fastq --al-conc /data/32_conc_mapped.sam
+bowtie2 -t -x /data/Aceph/Aceph -1 /raw_data/concat_data/Aceph_pe1.fq  -2 /raw_data/concat_data/Aceph_pe2.fq --un-conc /raw_data/concat_data/Aceph_conc_unmapped.fastq --al-conc /raw_data/concat_data/Aceph_conc_mapped.sam
 
 ```
 6. Use SPAdes assembly program to cross-assemble all unmapped reads from step 5. The single cell option (--sc) worked best for this data, but the --meta option may work better depending on your dataset. 
 ```sh
-SPAdes-3.14.0-Linux/bin/spades.py --sc --pe1-1 /data/32_conc_unmapped.1.fastq --pe1-2 /data/32_conc_unmapped.2.fastq -k 21,33,55,77,99,127  -o 32_spades
+SPAdes-3.14.0-Linux/spades.py --sc --pe1-1 /raw_data/concat_data/Aceph_conc_unmapped.1.fastq --pe1-2 /raw_data/concat_data/Aceph_conc_unmapped.2.fastq -k 21,33,55,77,99,127  -o /data/spades_output
 ```
 
-7. Using removesmalls.pl, only retain contigs 300 bp or larger
+7. Using removesmalls.pl, only retain contigs 300 bp or larger.
 ```sh
-perl /code/removesmalls.pl 300 scaffolds.fasta > 32_scaffolds_300.fasta
+perl /data/removesmalls.pl 300 /data/spades_output/scaffolds.fasta > /data/Aceph/Aceph_scaffolds_300.fasta
 ```
 
 8. Using Bowtie2, map these contigs back to reads for that sample to assess read coverage of each individual contig.
 ```sh
-bowtie2-build 15_scaffolds_300.fasta 32_scaffolds_300.fasta
+bowtie2-build /data/Aceph/Aceph_scaffolds_300.fasta /data/Aceph/Aceph_scaffolds_300.fasta
 
-bowtie2 -p 12 -x 32_scaffolds_300.fasta -1 32_pe1.fq  -2 32_pe2.fq -S 32_reads.map.sam
+bowtie2 -p 12 -x /data/Aceph/Aceph_scaffolds_300.fasta -1 /raw_data/concat_data/Aceph_pe1.fq  -2 /raw_data/concat_data/Aceph_pe2.fq -S /data/Aceph/Aceph_reads.map.sam
 
-samtools faidx 32_scaffolds_300.fasta
+samtools faidx /data/Aceph/32_scaffolds_300.fasta
+
+samtools view -bt /data/Aceph/Aceph_scaffolds_300.fasta.fai /data/Aceph/Aceph_reads.map.sam > /data/Aceph/Aceph_reads.map.bam
+samtools sort /data/Aceph/Aceph_reads.map.bam  -o /data/Aceph/Aceph_reads.map.sorted.bam
+samtools index /data/Aceph/Aceph_reads.map.sorted.bam
+
+
+bbmap/pileup.sh in=/data/Aceph/Aceph_reads.map.sorted.bam out=/data/Aceph/stats_Aceph_cov.txt hist=/data/Aceph/histogram_Aceph_cov.txt
+
 ```
+Steps 1-8 were subsequently performed on all 44 samples and 1 control sample to assemble into contigs. I do not include all sample data here for step 1-8 since it is several TBs.  Steps 9-30 include data for all samples including the *Atta cephalotes* sample processed in steps 1-8. Additionally, all data for steps 9-30 can be found within the "data" file. 
 
-All data from here on out is in files contigs
-
-9. Run cd-ht on each seperate sample in your dataset. Cd-hit filters the contigs for redundancy, in this case at 95% sequence similarity.
+9. Run cd-ht on each seperate sample in the dataset. Cd-hit filters the contigs for redundancy, in this case at 95% sequence similarity.
 ```sh
-work_dir="./contigs/"
-read_dir="../cdhit_output"
+work_dir="data/all_sample_scaffolds/"
+read_dir="/data/cdhit_output/"
 
 cd "${work_dir}"
 
@@ -95,21 +101,20 @@ done
 
 ```
 
-10. Concatenate all contigs from together into fasta file.
+10. Concatenate all contigs from this dataset together into fasta file.
 ```sh
-cat /data/cdhit_output/*.fasta > /data/contigs/all_contigs_cdhit_decon.fasta
+cat /data/cdhit_output/*.fasta > /data/contigs/combined_contigs.fasta
 ```
 11. Sort contigs by length in descending order using BBMap
 ```sh
-/bbmap/sortbyname.sh in=/data/contigs/all_contigs_cdhit.fasta out=/data/contigs/all_contigs_cdhit_decon_sorted.fasta length descending
+/bbmap/sortbyname.sh in=/data/contigs/combined_contigs.fasta out=/data/contigs/combined_contigs_sorted.fasta length descending
 ```
 
-12. Creat single line fasta file from all contigs.
+12. Create single line fasta file from all contigs.
 ```sh
-perl -pe '$. > 1 and /^>/ ? print "\n" : chomp' /data/contigs/all_contigs_cdhit_decon_sorted.fasta > /data/contigs/all_contigs_cdhit_decon_sorted_single.fasta
+perl -pe '$. > 1 and /^>/ ? print "\n" : chomp' /data/contigs/combined_contigs_sorted.fasta > /data/contigs/combined_contigs_sorted_single.fasta
 ```
 
-**VirSorter2**  
 13. Use VirSorter2 version 2.1.0 to identify further viral contigs from your cross-assembled samples. I found that the CyVerse version of VirSorter2 worked better than the command line versions. I used VirSorter2 pre-set parameters for this analysis. Output file from VirSorter2 is: **virsorter_contigs.fa** in the /data/contigs folder.
 
 14. Download Non-redundant protein database from NCBI with taxonomic information.This is 192GB so I just include information about how to do this here, but not actually the large files.
@@ -132,8 +137,8 @@ diamond makedb -p 14 --in nr.fa \
   -d nr
 ```
 
-**Decontamination of Samples with Control Sample**
-14. database with taxonomy for decontamination, these files are very large so I have not included them in this workflow, but you can download them to your server from NCBI. 
+**Decontamination of Samples with Control Sample** <br>
+14. Create a database with taxonomy for decontamination of samples, the taxonomy files are quite large so I have not included them in this workflow, but you can download them to your server from NCBI. 
 
 ```sh
 /diamond/diamond makedb --in /decontamination/23_scaffolds_300.fasta_cdhit.fasta --db /decontamination/decontamination_db --taxonmap /nr/prot.accession2taxid.gz --taxonnodes /nr/nodes.dmp --taxonnames  /nr/names.dmp --threads 20 &
@@ -147,34 +152,34 @@ makeblastdb -in /data/decontamination/23_scaffolds_300.fasta_cdhit.fasta -out /d
 16. Using BLAST, search all discovered contigs against the control sample. I used BLAST instead of DIAMOND here since it is a nucleotide-nucleotide search and DIAMOND is only functional for protein and translated protein searches.
 
 ```sh
-blastn -num_threads "40" -db /data/decontamination/Decon -outfmt "6" -max_target_seqs "1" -evalue "1e-5" -max_hsps 1  -out /data/decontamination/contaminated_contigs_300.out -query /data/contigs/all_contigs_cdhit_decon_sorted.fasta &
+blastn -num_threads "40" -db /data/decontamination/Decon -outfmt "6" -max_target_seqs "1" -evalue "1e-5" -max_hsps 1  -out /data/decontamination/contaminated_contigs.out -query /data/contigs/combined_contigs_sorted.fasta &
 ```
 17. **MAKE A CONTAMINATED TEXT FILE FROM BLAST OUTPUT**
 
 18. Delete contaminated sequences from assembled contigs.
 ```sh
-awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /data/contigs/all_contigs_cdhit_decon_sorted_single.fasta > /data/contigs/all_contigs_300_decontam_cdhit_single.fasta
+awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /data/contigs/combined_contigs_sorted_single.fasta > /data/contigs/combined_contigs_decontam_single.fasta
 ```
 19. Search contigs on viral RefSeq database with blastx (RefSeq is a more heavily curated database than nr). RefSeq Viral Protein database can be downloaded here: [RefSeq Viral Protein Database from NCBI](https://www.ncbi.nlm.nih.gov/protein?term=%28%22Viruses%22%5BOrganism%5D%20AND%20srcdb_refseq%5BPROP%5D%20AND%20viruses%5Bfilter%5D&cmd=DetailsSearch) and converted into a .dmnd file. This tutorial is helpful: https://andreirozanski.com/2020/01/03/building-a-diamond-db-using-refseq-protein/
 
 ```sh
-/diamond/diamond blastx -p "40" -d /RefSeq_protein_viral_database.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/RefSeq_blastx_contigs_300.out -q /data/contigs/all_contigs_300_decontam_cdhit_single.fasta &
+/diamond/diamond blastx -p "40" -d /data/RefSeq_protein_viral_database.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/RefSeq_blastx_contigs.out -q /data/contigs/combined_contigs_decontam_single.fasta &
 ```
 20. Extract viral fasta sequences from  blastx refseq results (to make txt file need to do this in text wrangler)
 ```sh
-awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/RefSeq_viral_contigs.txt /data/contigs/all_contigs_300_decontam_cdhit_single.fasta > /data/contigs/viral_contigs_refseq_300.fasta
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/RefSeq_viral_contigs.txt /data/contigs/combined_contigs_decontam_single.fasta > /data/contigs/viral_contigs_refseq.fasta
 ```
 21. Delete anything after | in fasta header to make VirSorter2 output file compatible with RefSeq viral contig output file.
 ```sh
-cut -d'|' -f1 /data/contigs/virsorter_contigs.fa > /data/contigs/virsorter_contigs_1.fa
+cut -d'|' -f1 /data/contigs/virsorter_contigs.fa > /data/contigs/virsorter_contigs1.fa
 ```
 22. Find viral contigs which were in common between RefSeq and VirSorter2 searches. 
 ```sh
-awk '/^>/{if (a[$1]>=1){print $1}a[$1]++}' /data/contigs/virsorter_contigs_1.fa /data/contigs/viral_contigs_refseq_300.fasta > /data/contigs/common_viral.txt
+awk '/^>/{if (a[$1]>=1){print $1}a[$1]++}' /data/contigs/virsorter_contigs1.fa /data/contigs/viral_contigs_refseq.fasta > /data/contigs/common_viral.txt
 ```
 23. Using perl, Take away > from each line in text files for VirSorter and RefSeq viral contig comparison.
 ```sh
-perl -pe 's,.*>,,' /data/contigs/common_viral.txt > /data/contigs/common_viral2.txt
+perl -pe 's,.*>,,' /data/contigs/common_viral.txt > /data/contigs/common_viral1.txt
 ```
 
 24. delete same sequences from virsorter contig file
@@ -183,73 +188,79 @@ awk 'BEGIN{while((getline<"common_viral2.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /da
 ```
 25. combine viral RefSeq contigs and Virsorter2 contigs
 ```sh
-cat /data/contigs/virsorter_unique_viruses.fa /data/contigs/viral_contigs_refseq_300.fasta > /data/contigs/Refseq_virsorter_contigs.fasta
+cat /data/contigs/virsorter_unique_viruses.fa /data/contigs/viral_contigs_refseq.fasta > /data/contigs/Refseq_virsorter_contigs.fasta
 ```
 26. Using DIAMOND, Search nr database Blastx (search protein databases using a translated nucleotide on combined viral contigs (from RefSeq and VirSorter2) to further confirm these putatitive viral sequences.
 ```sh
-/diamond/diamond blastx -p "50" -d /nr/nr_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/NR_blastx_contigs_300.out -q /data/contigs/Refseq_virsorter_contigs.fasta &
+/diamond/diamond blastx -p "50" -d /nr/nr_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/NR_blastx_contigs.out -q /data/contigs/Refseq_virsorter_contigs.fasta &
 ```
 27. Extract viral nucleotide contig sequences from blastx search results (to make txt file need to do this in text wrangler).
 ```sh
-awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/viruses_NR_300.txt /data/contigs/Refseq_virsorter_contigs.fasta > /data/contigs/final_NR_viral_contigs.fasta
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/viruses_NR.txt /data/contigs/Refseq_virsorter_contigs.fasta > /data/contigs/final_NR_viral_contigs.fasta
 ```
 28. Use CHECKV program to search for proviral contamination within these putatitive viral contigs. 
 ```sh
 export CHECKVDB=/checkv-db-v1.0
 checkv contamination /data/contigs/final_NR_viral_contigs.fasta  /contigs/checkv_output
 ```
-29. Extract viral nucleotide contig sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) 
+29. Extract viral nucleotide contig sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and only 500bp
 ```sh
-awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/final_viruses.txt /data/contigs/final_NR_viral_contigs.fasta > /data/contigs/final_viruses_aftertaxonomy.fasta
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/final_viruses.txt /data/contigs/final_NR_viral_contigs.fasta > /data/contigs/final_viruses.fasta
 ```
-30. 500bp length for contigs 
 
 ## Phylogenetics Pipeline
 This portion of the workflow takes only the viral contigs which had most similarity to the viral phylum [Cressdnaviricota](https://talk.ictvonline.org/taxonomy/p/taxonomy-history?taxnode_id=202107372) to illustrate the phylogenetic workflow for each viral clade analyzed. 
 
-1. CRESS viruses using EMBOSS for circular viruses 
-
-2. blastp these 
-
-2. extract Rep sequences for CRESS viruses, only included viruses with complete CRESS genomes (n=170)
+1. extract CRESS viruses from all contigs
 ```sh
-awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' Cruciviridae_Rep.txt Cruciviridae_contigs_emboss.fasta > Cruciviridae_Rep.fasta
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRESS_viruses.txt /data/contigs/final_viruses.fasta > /Phylogenetics_data/CRESS_viruses.fasta
 ```
-THESE ARE RIGHT
-CRESS_viruses_proteins_blastp_emboss_circular1.out
-CRESS_rep_proteins_emboss_final.fasta
 
-3. Download all CRESS viral Replication protein sequences from NCBI greater than 150 amino acids in length [here](https://www.ncbi.nlm.nih.gov/protein/?term=txid2732416%5BOrganism%5D+rep). 
+2. CRESS viruses using EMBOSS for circular viruses 
+```sh
+getorf -minsize 300 -circular Y  -sequence /Phylogenetics_data/CRESS_viruses.fasta -outseq /Phylogenetics_data/CRESS_viruses_proteins.fasta
+```
+3. Use blastp to identify the specific Rep proteins on the viral protein contigs identified as CRESS viruses.
+```sh
+/diamond/diamond blastp -p "40" -d /data/RefSeq_protein_viral_database.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /Phylogenetics_data/CRESS_viruses_proteins_blastp.out -q /Phylogenetics_data/CRESS_viruses_proteins.fasta &
+```
 
-4. Since there are a lot of sequence replicates in NCBI, I used Geneious to remove duplicates the NCBI CRESS Rep sequences and manually removed any spurious protein sequences. 
+4. extract Rep sequences for CRESS viruses, only included viruses with complete CRESS genomes (n=170). 
+```sh
+awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRESS_genome_rep_proteins.txt /Phylogenetics_data/CRESS_viruses_proteins.fasta > /Phylogenetics_data/CRESS_Rep_ant_proteins.fasta 
+```
+
+5. Download all CRESS viral Replication protein sequences from NCBI greater than 150 amino acids in length [here](https://www.ncbi.nlm.nih.gov/protein/?term=txid2732416%5BOrganism%5D+rep). 
+
+6. Since there are a lot of sequence replicates in NCBI, I used Geneious to remove duplicates the NCBI CRESS Rep sequences and manually removed any spurious protein sequences. 
 
 **PICTURES**
 
-3. Using MAFFT, align the ant-associated CRESS Rep viral protein sequences and all CRESS Rep sequences recovered from NCBI.  
+7. Using MAFFT, align the ant-associated CRESS Rep viral protein sequences and all CRESS Rep sequences recovered from NCBI.  
 
 ```sh
 XXXX 
 ```
 
-4. Manually trim aligned file using Geneious for uniform alignments. After making an alignment, it is necessary to inspect and trim it to remove non-homologous sites. Additionally, gaps and ambiguously aligned regions were stripped using trimAL. Save alignment as PHYLIP. 
+8. Manually trim aligned file using Geneious for uniform alignments. After making an alignment, it is necessary to inspect and trim it to remove non-homologous sites. Additionally, gaps and ambiguously aligned regions were stripped using trimAL. Save alignment as PHYLIP. 
 ```sh
-trimal -in INFILE -out OUTFILE -fasta -automated1
+trimal -in /Phylogenetics_data/CRESS_refseq_alignment.phy -out /Phylogenetics_data/CRESS_refseq_alignment_trimal.phy -fasta -automated1
 ```
 
-5. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment.
+9. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment.
 ```sh
-java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_refseq_alignment.phy -all-matrices -all-distributions -o /Phylogenetics_data/CRESS_refseq.log -threads 30 &
+java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_refseq_alignment_trimal.phy -all-matrices -all-distributions -o /Phylogenetics_data/CRESS_refseq.log -threads 30 &
 ```
 
-6. RAxML 
+10. RAxML 
 ```sh
 raxmlHPC-PTHREADS -n CRESS_refseq -s prottest-3.4.2/Phylogenetics_data/CRESS_refseq_alignment.phy -m PROTGAMMALG -f a -p 194955 -x 12345 -# 500 -T 50 &
 ```
-7. ITOL (pictures) with RAxML output
+11. ITOL (pictures) with RAxML output
 
 How to prune tree to just CRESS samples in ITOL 
 
-8. Co-phylo tanglegram in R
+12. Co-phylo tanglegram in R
 ```R
 setwd(Phylogenetics_data)
 library(phytools)
@@ -273,7 +284,7 @@ plot(obj, ftype= "off", link.col=col, tip.len = 0.1, tip.lty="blank" , part=0.2,
 tiplabels.cophylo(text=c("Pseudomyrmex", "Camponotus","Odontomachus", "Anochetus", "Ectatomma", "Neoponera", "Azteca", "Cephalotes", "Dolichoderus", "Solenopsis", "Crematogaster", "Labidus", "Eciton", "Gigantiops", "Paraponera", "Daceton"), adj = 0.03, frame= "none", cex=1.2, font=4)
 ```
 
-9. Procrustes application to cophylogenetic analysis (PACo) in R
+13. Procrustes application to cophylogenetic analysis (PACo) in R
 ```R
 setwd(Phylogenetics_data)
 library (ape)
@@ -380,9 +391,9 @@ text(pat.bar, par("usr")[3] - 0.001, srt = 330, adj = 0, labels = colnames(SQres
 arrows(pat.bar, phi.mean, pat.bar, phi.UCI, length= 0.05, angle=90)
 abline(a=median(phi.mean), b=0, lty=2, xpd=FALSE) #draws a line across the median residual value
 ```
-10. JANE (in picture format )
+14. JANE (in picture format )
 
-11. To test if specific ecological traits of the ant host species are structuring the phylogeny of CRESS viruses, I used Bayesian tip-association significance testing (BaTS). The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
+15. To test if specific ecological traits of the ant host species are structuring the phylogeny of CRESS viruses, I used Bayesian tip-association significance testing (BaTS). The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
 
 BaTS analysis for diet (omnivorous, carnivorous, or herbivorous)
 ```sh
