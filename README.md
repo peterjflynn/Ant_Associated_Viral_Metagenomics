@@ -114,7 +114,7 @@ mkdir data/contigs
 
 cat /data/cdhit_output/*.fasta > data/contigs/combined_contigs.fasta
 ```
-11. Sort contigs by length in descending order using BBMap
+11. Sort contigs by length in descending order using BBMap.
 ```sh
 /bbmap/sortbyname.sh in=/data/contigs/combined_contigs.fasta out=/data/contigs/combined_contigs_sorted.fasta length descending
 ```
@@ -164,7 +164,7 @@ makeblastdb -in /data/decontamination/control_sample_contigs.fasta -out /data/de
 ```sh
 blastn -num_threads "40" -db /data/decontamination/Decon -outfmt "6" -max_target_seqs "1" -evalue "1e-5" -max_hsps 1  -out /data/decontamination/contaminated_contigs.out -query /data/contigs/combined_contigs_sorted.fasta &
 ```
-19. Delete contaminated sequences from assembled contigs.
+19. Delete contaminated sequences from assembled contigs. All contaminated contig IDs were added to a text file to creat contam.txt
 ```sh
 awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /data/contigs/combined_contigs_sorted_single.fasta > /data/contigs/combined_contigs_decontam_single.fasta
 ```
@@ -173,7 +173,7 @@ awk 'BEGIN{while((getline<"contam.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /data/cont
 ```sh
 /diamond/diamond blastx -p "40" -d /data/RefSeq_protein_viral_database.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/RefSeq_blastx_contigs.out -q /data/contigs/combined_contigs_decontam_single.fasta &
 ```
-21. Extract viral fasta sequences from  blastx refseq results (to make txt file need to do this in text wrangler)
+21. Extract viral fasta sequences from  blastx refseq results.
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/RefSeq_viral_contigs.txt /data/contigs/combined_contigs_decontam_single.fasta > /data/contigs/viral_contigs_refseq.fasta
 ```
@@ -202,7 +202,7 @@ cat /data/contigs/virsorter_unique_viruses.fa /data/contigs/viral_contigs_refseq
 ```sh
 /diamond/diamond blastx -p "50" -d /nr/nr_diamond.dmnd -f "6" qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore staxids sscinames sskingdoms skingdoms sphylums stitle qtitle qstrand -k "1" --evalue "1e-3" --max-hsps 1 --sensitive -o /data/contigs/NR_blastx_contigs.out -q /data/contigs/Refseq_virsorter_contigs.fasta &
 ```
-28. Extract viral nucleotide contig sequences from blastx search results (to make txt file need to do this in text wrangler).
+28. Extract viral nucleotide contig sequences from blastx search results. Viruses_NR.txt file was made by copying all hit IDs from NR_blastx_contigs.out into a text file.
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/viruses_NR.txt /data/contigs/Refseq_virsorter_contigs.fasta > /data/contigs/final_NR_viral_contigs.fasta
 ```
@@ -211,7 +211,7 @@ awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/viruses_N
 export CHECKVDB=/checkv-db-v1.0
 checkv contamination /data/contigs/final_NR_viral_contigs.fasta  /contigs/checkv_output
 ```
-30. Extract viral nucleotide contig sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed (to make txt file need to do this in text wrangler) and only 500bp
+30. Extract viral nucleotide contig sequences from  blastx NR results with proviruses and retroviruses and endogenous viruses removed as well as only extracting 500bp contigs or larger.
 ```sh
 awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /data/contigs/final_viruses.txt /data/contigs/final_NR_viral_contigs.fasta > /data/contigs/final_viruses.fasta
 ```
@@ -367,7 +367,8 @@ cat(" The observed m2 is ", m2.obs, "\n", "P-value = ", P.value, " based on ", N
 ```
 The result for this PACo analysis:  *The observed m2 is  3693890. P-value =  0.036  based on  1000000  permutations*
  
-14. Jane is an event-based co-phylogenetic reconstruction approach, which evaluates the combination of events of co-speciation, duplication, host switching, loss, and failure to diverge (Conow et al. 2010). Jane examines the extent of virus-host co-divergence within each viral clade.
+14. Additionally, I assessed co-divergence of the CRESS and ant phylogenies using JANE. Jane is an event-based co-phylogenetic reconstruction approach, which evaluates the combination of events of co-speciation, duplication, host switching, loss, and failure to diverge (Conow et al. 2010). Jane examines the extent of virus-host co-divergence within each viral clade. The ‘cost’ scheme for analyses in Jane were set as follows: co-speciation = 0, duplication = 1, host switching = 2, loss = 1, and failure to diverge = 1. The “failure to diverge” parameter refers to occurrences when host speciation is not followed by virus speciation, and the virus remains on both newly speciated hosts. The number of generations and population size were both set to 500. The significance of co-divergence was derived by comparing the estimated costs of null distributions calculated from 500 randomizations of host tip mapping. Below is the output for this analysis when assessing CRESS-ant phylogenies.
+![JANE_analysis](Pictures/JANE.png)
 
 15. To test if specific ecological traits of the ant host species are structuring the ant-associated CRESS virus phylogeny, I used Bayesian tip-association significance testing (BaTS). The input is basically an association matrix between the virus and the specific ecological trait of the ant host sample. The input files for each ecological trait tested is in "Phylogenetics_data." The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
 
