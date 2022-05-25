@@ -389,6 +389,8 @@ BaTS analysis for ant colony nest type (arboreal, ground nest, or rotten log)
 java -jar BaTS_beta.jar single BATS_CRESS_nest.tree 1000 3
 ```
 
+
+**Note**:
 There are a variety of other downstream phylogenetic and ecological analyses that I have not included in this workflow, but may be useful for your dataset. A few of these include **δ** statistic implemented using *ape* within R (to evaluate the effects of phylogeny on a categorical trait’s evolution across species) and the Mantel Test implemented using *vegan* in R (to statistically test correlation between two distance matrices and often used to measure phylogenetic signal between a host and viral phylogeny). 
 
 Happy Coding!
