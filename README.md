@@ -1,6 +1,6 @@
 # Ant-Associated Viral Metagenomics Workflow
 ## Dependencies
-Bioinformatics Pipeline 
+Bioinformatics Pipeline <br>
 [Java](https://www.java.com/en/) <br>
 [Perl](https://www.perl.org/) <br>
 [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) <br>
@@ -36,6 +36,8 @@ fastqc -t 4 /raw_data/* -o /fastqc_out/
 
 2. Concatenate the forward and the reverse reads from multiple lanes of sequencing together. 
 ```sh
+mkdir raw_data/concat_data
+
 cat /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L004_R1.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L005_R1.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHWYVLBBXX_L005_R1.fastq.gz > /raw_data/concat_data/Aceph_concatenated_R1.fastq.gz
 
 cat /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L004_R2.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHNFFJBBXX_L005_R2.fastq.gz /raw_data/32A_GTGAATAT-GAATGAGA-AHWYVLBBXX_L005_R1.fastq.gz > /raw_data/concat_data/Aceph_concatenated_R2.fastq.gz
@@ -51,6 +53,8 @@ ILLUMINACLIP:Trimmomatic-0.35/adapters/TruSeq3-PE-2.fa:2:30:10 LEADING:3 TRAILIN
 
  4. Build ant species specific genome database in bowtie2. For this particular sample I used the *Atta cephalotes* genome downloaded from NCBI.
 ```sh
+mkdir data/Aceph
+
 bowtie2-build /data/Aceph/A_cephalotes_genome.fasta /data/Aceph/Aceph
 
 ```
@@ -81,14 +85,14 @@ samtools view -bt /data/Aceph/Aceph_scaffolds_300.fasta.fai /data/Aceph/Aceph_re
 samtools sort /data/Aceph/Aceph_reads.map.bam  -o /data/Aceph/Aceph_reads.map.sorted.bam
 samtools index /data/Aceph/Aceph_reads.map.sorted.bam
 
-
 bbmap/pileup.sh in=/data/Aceph/Aceph_reads.map.sorted.bam out=/data/Aceph/stats_Aceph_cov.txt hist=/data/Aceph/histogram_Aceph_cov.txt
 
 ```
-Steps 1-8 were subsequently performed on all 44 samples and 1 control sample to assemble into contigs. I do not include all sample data here for step 1-8 since it is several TBs.  Steps 9-30 include data for all samples including the *Atta cephalotes* sample processed in steps 1-8. Additionally, all data for steps 9-29 can be found within the "data" file. 
+Steps 1-8 were subsequently performed on all 44 samples and 1 control sample to assemble into contigs. I do not include all sample data here for step 1-8 since it is several TBs.  Steps 9-30 include data for all samples including the *Atta cephalotes* sample processed in steps 1-8. Additionally, all data for steps 9-29 can be found within the "data" file. All contig files from each sample are found in data/all_sample_scaffolds.
 
 9. Run cd-hit on samples from each seperate contig file in the dataset. Cd-hit filters the contigs for redundancy, in this case at 95% sequence similarity.
 ```sh
+mkdir data/cdhit_output
 work_dir="data/all_sample_scaffolds/"
 read_dir="/data/cdhit_output/"
 
@@ -105,7 +109,9 @@ done
 
 10. Concatenate all contigs from this dataset together into fasta file.
 ```sh
-cat /data/cdhit_output/*.fasta > /data/contigs/combined_contigs.fasta
+mkdir data/contigs
+
+cat /data/cdhit_output/*.fasta > data/contigs/combined_contigs.fasta
 ```
 11. Sort contigs by length in descending order using BBMap
 ```sh
@@ -143,7 +149,8 @@ diamond makedb -p 14 --in nr.fa \
 16. Create a database with taxonomy for decontamination of samples, the taxonomy files are quite large so I have not included them in this workflow, but you can download them to your server from NCBI. 
 
 ```sh
-/diamond/diamond makedb --in /decontamination/control_sample_contigs.fasta --db /decontamination/decontamination_db --taxonmap /nr/prot.accession2taxid.gz --taxonnodes /nr/nodes.dmp --taxonnames  /nr/names.dmp --threads 20 &
+mkdir decontamination
+/diamond/diamond makedb --in /data/decontamination/control_sample_contigs.fasta --db /data/decontamination/decontamination_db --taxonmap /nr/prot.accession2taxid.gz --taxonnodes /nr/nodes.dmp --taxonnames  /nr/names.dmp --threads 20 &
 ```
 17. Create a database of "contaminant" samples using the contigs from the control sample.
 ```sh
