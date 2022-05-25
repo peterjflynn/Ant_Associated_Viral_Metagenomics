@@ -1,5 +1,6 @@
 # Ant-Associated Viral Metagenomics Workflow
-## Dependencies 
+## Dependencies
+Bioinformatics Pipeline 
 [Java](https://www.java.com/en/) <br>
 [Perl](https://www.perl.org/) <br>
 [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) <br>
@@ -233,9 +234,9 @@ awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRE
 
 6. Since there are a lot of sequence replicates in NCBI, I used Geneious to remove duplicates from the NCBI CRESS Rep sequences (using the remove duplicates function) and manually removed any spurious protein sequences. 
 
-7. Using MAFFT, align the ant-associated CRESS Rep viral protein sequences and all CRESS Rep sequences recovered from NCBI.I used MAFFT within Geneious, but the command line version of MAFFT works well.   
+7. Using MAFFT, align the ant-associated CRESS Rep viral protein sequences and all CRESS Rep sequences recovered from NCBI. I used MAFFT within Geneious, but the command line version of MAFFT works well.   
 
-![MAFFT for CRESS sequences](MAFFT.png)
+![MAFFT for CRESS sequences](Pictures/MAFFT.png)
 
 8. Manually trim aligned file using Geneious for uniform alignments. After making an alignment, it is necessary to inspect and trim it to remove non-homologous sites. Additionally, gaps and ambiguously aligned regions can be stripped using trimAL (though always double check automatic trimmers since they can give you very weird results). For the CRESS alignment I did not end up using the trimAL alignment due to it trimming out most of the signal. Save alignment as PHYLIP file. 
 ```sh
@@ -251,24 +252,32 @@ java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_alignment.phy -all-mat
 ```sh
 raxmlHPC-PTHREADS -n CRESS -s /Phylogenetics_data/CRESS_alignment.phy -m PROTGAMMALG -f a -p 194955 -x 12345 -# 500 -T 50 &
 ```
-# 11. ITOL (pictures) with RAxML output
+11. I used the [Interactive Tree of Life](https://itol.embl.de/) (ITOL) for much of my downstream display, pruning, and annotating of viral phylogenies for this project. You just upload the raw RAxML file (/Phylogenetics_data/RAxML_output/RAxML_bipartitionsBranchLabels.CRESS) and use the control panel to change phylogeny display, add ecological data, and prune the phylogeny. The program ggtree in R is also a good way to work with phylogenies once they are inferred.
 
-How to prune tree to just CRESS samples in ITOL 
+Example of the control panel in ITOL.
 
-12.  To better visualize these co-divergence patterns, I visualized these associations between the ant-associated CRESS viral phylogeny and the ant host phylogeny using the cophylo function in phytools to create a tanglegram.
+![ITOL Control Panel](Pictures/ITOL_control_panel.png)
+
+To prune the tips of a phylogeny in ITOL, just drag a text file with the tip name into the phylogeny and it will save these tips and prune the rest of the tips on the phylogeny. The example for the ant-associated CRESS virus phylogeny tip pruning is in Phylogenetics_data/pruned_tips.txt. The pruned tree with ecological data included is below:
+![ITOL Control Panel](Pictures/Ant-associated_CRESS_phylogeny.png)
+
+
+12.  To better visualize these co-divergence patterns, I visualized these associations between the ant-associated CRESS viral phylogeny and the ant host phylogeny using the cophylo function in phytools to create a tanglegram. The three files needed for this are the ant host genus-level phylogeny (Phylogenetics_data/R_data/Ant_host_cophylo.tree), the ant-associated CRESS virus phylogeny (Phylogenetics_data/R_data/CRESS_cophylo.tree), and the CRESS virus-ant host associations (Phylogenetics_data/R_data/CRESS_Ant_associations.csv).
 ```R
 setwd(Phylogenetics_data/R_data)
 library(phytools)
 library(ape)
 #cophylo CRESS
-tr1 <- read.tree("prunedtree_CRESS_JANE_branch.tree")
-tr2 <- read.tree("CRESS_nona/CRESS_noboot1.tree")
-assoc <- read.csv("CRESS_associations.csv")
+#host ant phylogeny by genus (pruned from Nelsen et al. 2018 ant species-level phylogeny)
+tr1 <- read.tree("Ant_host_cophylo.tree")
+#CRESS viral phylogeny pruned to be just ant-associated CRESS viruses discovered within this project without bootstrap values. Additionally, each tip was changed to a number in order to be able to associate with the host phylogeny. The number-CRESS virus association is in /Phylogenetics_data/R_data/CRESS_number_associations_cophylo.csv.
+tr2 <- read.tree("CRESS_cophylo.tree")
+#Associations between the CRESS viral phylogeny and the ant host genus phylogeny.
+assoc <- read.csv("CRESS_Ant_associations.csv")
 obj<-cophylo(tr1,tr2,assoc=assoc, rotate=TRUE, plot=TRUE)
 summary(obj)
+
 ## add tip labels
-#tiplabels.cophylo(pch=21,frame="none",bg="grey",cex=1.5)
-#tiplabels.cophylo(pch=21,frame="none",bg="grey",which="right",cex=1.5)
 ant_names <- as.factor(obj$assoc[,1])
 color_assoc <- rainbow(length(unique(ant_names)))
 color_assoc <- c("deepskyblue1", "green", "red3", "darkorange1", "darkviolet", "khaki1", "blue", "red1", "plum1", "goldenrod2", "green4", "black", "goldenrod", "red", "gray4", "deepskyblue2")  
@@ -280,11 +289,11 @@ tiplabels.cophylo(text=c("Pseudomyrmex", "Camponotus","Odontomachus", "Anochetus
 ```
 ![CRESS-Ant Tanglegram](Pictures/Tanglegram.png)
 
-13. Implement the Procrustes application to cophylogenetic analysis (PACo) in R on CRESS viral phylogeny and ant host species phylogeny. PACo assesses the congruence or evolutionary dependency of two groups of interacting species using their phylogenetic history. The PACo method  statistically tests for significant congruence between the host and parasite phylogenies
+13. Implement the Procrustes application to cophylogenetic analysis (PACo) in R on CRESS viral phylogeny and ant host species phylogeny. PACo assesses the congruence or evolutionary dependency of two groups of interacting species using their phylogenetic history. The PACo method statistically tests for significant congruence between the host and parasite phylogenies. The three files needed for this are the ant host species-level phylogeny (Phylogenetics_data/R_data/Ant_host_PACo.tree), the ant-associated CRESS virus phylogeny (Phylogenetics_data/R_data/CRESS_PACo.tree), and the CRESS virus-ant host species association matrix (Phylogenetics_data/R_data/PACo_CRESS_Ant_association.txt).
 ```R
 ##### PACO #####
 setwd(Phylogenetics_data/R_data)
-library (ape)
+library(ape)
 library(vegan)
 library(paco)
 ###  PACo FUNCTION: adjustemt prior to Procrustes analysis
@@ -292,27 +301,29 @@ PACo <- function (H.dist, P.dist, HP.bin)
 { 
   HP.bin <- which(HP.bin > 0, arr.in=TRUE)
   H.PCo <- pcoa(H.dist, correction="cailliez") #Performs PCo of Host distances 
-  P.PCo <- pcoa(P.dist, correction="cailliez") #Performs PCo of Parasite distances
+  P.PCo <- pcoa(P.dist, correction="cailliez") #Performs PCo of virus distances
   if (is.null(H.PCo$vectors.cor)==TRUE) H.PCo <- H.PCo$vectors else
     H.PCo <- H.PCo$vectors.cor      # returns corrected pcoord 
   if (is.null(P.PCo$vectors.cor)==TRUE) P.PCo <- P.PCo$vectors else
     P.PCo <- P.PCo$vectors.cor
   H.PCo <- H.PCo[HP.bin[,1],]  #adjust Host PCo vectors 
-  P.PCo <- P.PCo[HP.bin[,2],]  #adjust Parasite PCo vectors
+  P.PCo <- P.PCo[HP.bin[,2],]  #adjust virus PCo vectors
   list (H.PCo = H.PCo, P.PCo = P.PCo)
 }
 ###  DATA INPUT
 #Host and parasite phylogenetic tree data:
 # Phylogenetic trees:
-TreeH <- read.tree("Host_treee_CRESS_refseq_PACO_species.tree") #this function reads Newick trees
-TreeP <- read.tree("CRESS_refseq.tree") #for Nexus trees, use read.nexus(file.choose())
+#host ant phylogeny by species (pruned from Nelsen et al. 2018 ant species-level phylogeny)
+TreeH <- read.tree("Ant_host_PACo.tree") 
+#CRESS viral phylogeny pruned to be just ant-associated CRESS viruses discovered within this project.
+TreeP <- read.tree("CRESS_PACo.tree") 
 #Compute patristic distances:
 host.D <- cophenetic (TreeH)
 para.D <- cophenetic (TreeP)
  ## Read HP: host-parasite association matrix
-#Hosts in rows, parasites in columns. Taxa names are included in the file and should match those in tree, sequence or distance files. 
-HP <- as.matrix(read.table("Paco_CRESS_association_matrix_transposed.txt", header=TRUE)) 
-#Sort host and parasite taxa in distance matrices to match the HP matrix:
+#Hosts in rows, viruses in columns. Taxa names are included in the file and should match those in tree, sequence or distance files. 
+HP <- as.matrix(read.table("PACo_CRESS_Ant_association.txt", header=TRUE)) 
+#Sort host and virus taxa in distance matrices to match the HP matrix:
 host.D <- host.D[rownames(HP), rownames(HP)]
 para.D <- para.D[colnames(HP), colnames(HP)]
 # 
@@ -329,7 +340,7 @@ set.seed(seed)
 #set.seed(5) ### use this option to obtain reproducible randomizations
 for (n in c(1:N.perm))
 { 
-  if (NLinks <= nrow(HP) | NLinks <= ncol(HP)) 	#control statement to avoid all parasites being associated to a single host 
+  if (NLinks <= nrow(HP) | NLinks <= ncol(HP)) 	#control statement to avoid all viruses being associated to a single ant host 
   {	flag2 <- TRUE 
   while (flag2 == TRUE)	{ 
     HP.perm <- t(apply(HP,1,sample))
@@ -350,7 +361,7 @@ The result for this PACo analysis:  *The observed m2 is  3693890. P-value =  0.0
  
 #14. JANE (in picture format )
 
-15. To test if specific ecological traits of the ant host species are structuring the phylogeny of CRESS viruses, I used Bayesian tip-association significance testing (BaTS). The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
+15. To test if specific ecological traits of the ant host species are structuring the ant-associated CRESS virus phylogeny, I used Bayesian tip-association significance testing (BaTS). The input is basically an association matrix between the virus and the specific ecological trait of the ant host sample. The input files for each ecological trait tested is in "Phylogenetics_data." The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
 
 BaTS analysis for ant species diet (omnivorous, carnivorous, or herbivorous)
 ```sh
