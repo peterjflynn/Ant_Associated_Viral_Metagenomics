@@ -242,7 +242,7 @@ awk -F'>' 'NR==FNR{ids[$0]; next} NF>1{f=($2 in ids)} f' /Phylogenetics_data/CRE
 trimal -in /Phylogenetics_data/CRESS_alignment.phy -out /Phylogenetics_data/CRESS_alignment_trimal.phy -phylip -gt 0.190
 ```
 
-9. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment. For this alignment the best fit protein substitution model was **LG + G**
+9. Use ProtTest3 to assess best fit model of protein evolution for the CRESS alignment. For this alignment the best fit protein substitution model was **LG + G**.
 ```sh
 java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_alignment.phy -all-matrices -all-distributions -o /Phylogenetics_data/CRESS_ProtTest3.log -threads 30 &
 ```
@@ -255,7 +255,7 @@ raxmlHPC-PTHREADS -n CRESS -s /Phylogenetics_data/CRESS_alignment.phy -m PROTGAM
 
 How to prune tree to just CRESS samples in ITOL 
 
-12. Co-phylo tanglegram in R.
+12.  To better visualize these co-divergence patterns, I visualized these associations between the ant-associated CRESS viral phylogeny and the ant host phylogeny using the cophylo function in phytools to create a tanglegram.
 ```R
 setwd(Phylogenetics_data/R_data)
 library(phytools)
@@ -278,8 +278,9 @@ plot(obj, link.col=col, link.lty= "solid", tip.len = 0.02, tip.lty="dashed", par
 plot(obj, ftype= "off", link.col=col, tip.len = 0.1, tip.lty="blank" , part=0.2, pts=FALSE)
 tiplabels.cophylo(text=c("Pseudomyrmex", "Camponotus","Odontomachus", "Anochetus", "Ectatomma", "Neoponera", "Azteca", "Cephalotes", "Dolichoderus", "Solenopsis", "Crematogaster", "Labidus", "Eciton", "Gigantiops", "Paraponera", "Daceton"), adj = 0.03, frame= "none", cex=1.2, font=4)
 ```
+![CRESS-Ant Tanglegram](Pictures/Tanglegram.png)
 
-13. Procrustes application to cophylogenetic analysis (PACo) in R.
+13. Implement the Procrustes application to cophylogenetic analysis (PACo) in R on CRESS viral phylogeny and ant host species phylogeny. PACo assesses the congruence or evolutionary dependency of two groups of interacting species using their phylogenetic history. The PACo method  statistically tests for significant congruence between the host and parasite phylogenies
 ```R
 ##### PACO #####
 setwd(Phylogenetics_data/R_data)
@@ -301,7 +302,7 @@ PACo <- function (H.dist, P.dist, HP.bin)
   list (H.PCo = H.PCo, P.PCo = P.PCo)
 }
 ###  DATA INPUT
-#Host and parasite phylogenetic data (should be one of the following):
+#Host and parasite phylogenetic tree data:
 # Phylogenetic trees:
 TreeH <- read.tree("Host_treee_CRESS_refseq_PACO_species.tree") #this function reads Newick trees
 TreeP <- read.tree("CRESS_refseq.tree") #for Nexus trees, use read.nexus(file.choose())
@@ -321,7 +322,7 @@ HP.proc <- procrustes(PACo.fit$H.PCo, PACo.fit$P.PCo) #Procrustes Ordination
 NLinks = sum(HP) #Number of H-P links; needed for further computations
 # Goodness-of-fit-test
 m2.obs <- HP.proc$ss #observed sum of squares
-N.perm = 10000 #set number of permutations for testing
+N.perm = 1000000 #set number of permutations for testing
 P.value = 0
 seed <-.Random.seed[trunc(runif(1,1,626))]
 set.seed(seed)
@@ -345,6 +346,8 @@ P.value <- P.value/N.perm
 cat(" The observed m2 is ", m2.obs, "\n", "P-value = ", P.value, " based on ", N.perm," permutations.")
 
 ```
+The result for this PACo analysis:  *The observed m2 is  3693890. P-value =  0.036  based on  1000000  permutations*
+ 
 #14. JANE (in picture format )
 
 15. To test if specific ecological traits of the ant host species are structuring the phylogeny of CRESS viruses, I used Bayesian tip-association significance testing (BaTS). The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
