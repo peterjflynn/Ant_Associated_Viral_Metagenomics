@@ -26,7 +26,7 @@ Phylogenetics Pipeline <br>
 [BaTS](https://mybiosoftware.com/tag/bats) <br>
 
 ## Bioinformatics Pipeline
-This workflow starts with raw paired-end HiSeq data in FASTQ.gz format assumed to be located within a folder called raw_data. For steps 1-8 of this pipeline I will be illustrating with sequences from a single sample (*Atta cephalotes*), a leafcutter ant species. I used this as the example since this sample had the fewest number of viral contigs found within our dataset, so the file sizes are a bit smaller.
+This workflow starts with raw paired-end 150bp HiSeq data in FASTQ.gz format assumed to be located within a folder called raw_data. For steps 1-8 of this pipeline I will be illustrating with sequences from a single sample (*Atta cephalotes*), a leafcutter ant species. I used this as the example since this sample had the fewest number of viral contigs found within our dataset, so the file sizes are a bit smaller.
 For steps 9-30 of this pipeline, the contigs from every sample in the dataset are collated. 
 1. Run fastqc for manual inspection of the quality of the sequences.
 ```sh
@@ -93,6 +93,7 @@ Steps 1-8 were subsequently performed on all 44 samples and 1 control sample to 
 9. Run cd-hit on samples from each seperate contig file in the dataset. Cd-hit filters the contigs for redundancy, in this case at 95% sequence similarity.
 ```sh
 mkdir data/cdhit_output
+
 work_dir="data/all_sample_scaffolds/"
 read_dir="/data/cdhit_output/"
 
@@ -189,7 +190,7 @@ awk '/^>/{if (a[$1]>=1){print $1}a[$1]++}' /data/contigs/virsorter_contigs1.fa /
 perl -pe 's,.*>,,' /data/contigs/common_viral.txt > /data/contigs/common_viral1.txt
 ```
 
-25. Delete same sequences from virsorter contig file
+25. Delete same sequences from virsorter contig file.
 ```sh
 awk 'BEGIN{while((getline<"common_viral2.txt")>0)l[">"$1]=1}/^>/{f=!l[$1]}f' /data/contigs/virsorter_contigs_1.fa > /data/contigs/virsorter_unique_viruses.fa
 ```
@@ -366,7 +367,7 @@ cat(" The observed m2 is ", m2.obs, "\n", "P-value = ", P.value, " based on ", N
 ```
 The result for this PACo analysis:  *The observed m2 is  3693890. P-value =  0.036  based on  1000000  permutations*
  
-#14. JANE (in picture format )
+14. Jane is an event-based co-phylogenetic reconstruction approach, which evaluates the combination of events of co-speciation, duplication, host switching, loss, and failure to diverge (Conow et al. 2010). Jane examines the extent of virus-host co-divergence within each viral clade.
 
 15. To test if specific ecological traits of the ant host species are structuring the ant-associated CRESS virus phylogeny, I used Bayesian tip-association significance testing (BaTS). The input is basically an association matrix between the virus and the specific ecological trait of the ant host sample. The input files for each ecological trait tested is in "Phylogenetics_data." The output for these files are in the file called **BaTS_output.txt** in the Phylogenetics_data folder. 
 
