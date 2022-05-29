@@ -126,7 +126,7 @@ perl -pe '$. > 1 and /^>/ ? print "\n" : chomp' /data/contigs/combined_contigs_s
 
 13. Use [VirSorter2 v 2.1.0](https://github.com/jiarong/VirSorter2) to identify further viral contigs from your cross-assembled contigs. I found that the [CyVerse](https://de.cyverse.org/) version of VirSorter2 worked better than the command line versions. I used the VirSorter2 pre-set parameters for this analysis. Output file from VirSorter2 is: **virsorter_contigs.fa** in the /data/contigs folder.
 
-14. Download Non-redundant protein database (nr) from NCBI with taxonomic information. This is 192GB so I just include information about how to do this here, but not actually the large files.
+14. Download Non-redundant protein database (nr) from NCBI with taxonomic information. This is 192GB so I include information about how to do this here, but not actually the large files.
 ```sh
 mkdir -p /nr; cd nr
 wget -O - ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nr.gz \
@@ -260,13 +260,13 @@ java -jar prottest-3.4.2.jar -i /Phylogenetics_data/CRESS_alignment.phy -all-mat
 ```sh
 raxmlHPC-PTHREADS -n CRESS -s /Phylogenetics_data/CRESS_alignment.phy -m PROTGAMMALG -f a -p 194955 -x 12345 -# 500 -T 50 &
 ```
-11. I used the [Interactive Tree of Life](https://itol.embl.de/) (ITOL) for much of my downstream display, pruning, and annotating of viral phylogenies for this project. You just upload the raw RAxML file (/Phylogenetics_data/RAxML_output/RAxML_bipartitionsBranchLabels.CRESS) and use the control panel to change the phylogeny display, add ecological data, and prune the phylogeny. The program [ggtree](https://bioconductor.org/packages/devel/bioc/vignettes/ggtree/inst/doc/ggtree.html) in R is also a good way to work with phylogenies once they are inferred.
+11. I used the [Interactive Tree of Life](https://itol.embl.de/) (ITOL) for much of my downstream display, pruning, and annotating of viral phylogenies for this project. You upload the raw RAxML file (/Phylogenetics_data/RAxML_output/RAxML_bipartitionsBranchLabels.CRESS) and use the control panel to change the phylogeny display, add ecological data, and prune the phylogeny. The program [ggtree](https://bioconductor.org/packages/devel/bioc/vignettes/ggtree/inst/doc/ggtree.html) in R is also a good way to work with phylogenies once they are inferred.
 
 Example of the control panel in ITOL.
 
 ![ITOL Control Panel](Pictures/ITOL_control_panel.png)
 
-To prune the tips of a phylogeny in ITOL, just drag a text file with the tip name into the phylogeny and it will save these tips and prune the rest of the tips on the phylogeny. The example for the ant-associated CRESS virus phylogeny tip pruning is in Phylogenetics_data/pruned_tips.txt. The pruned tree with ecological data included is below:
+To prune the tips of a phylogeny in ITOL, drag a text file with the tip name into the phylogeny and it will save these tips and prune the rest of the tips on the phylogeny. The example for the ant-associated CRESS virus phylogeny tip pruning is in Phylogenetics_data/pruned_tips.txt. The pruned tree with ecological data included is below:
 ![ITOL Control Panel](Pictures/Ant-associated_CRESS_phylogeny.png)
 
 
@@ -278,7 +278,7 @@ library(ape)
 #cophylo CRESS
 #host ant phylogeny by genus (pruned from Nelsen et al. 2018 ant species-level phylogeny)
 tr1 <- read.tree("Ant_host_cophylo.tree")
-#CRESS viral phylogeny pruned to be just ant-associated CRESS viruses discovered within this project without bootstrap values. Additionally, each tip was changed to a number in order to be able to associate with the host phylogeny. The number-CRESS virus association is in /Phylogenetics_data/R_data/CRESS_number_associations_cophylo.csv.
+#CRESS viral phylogeny pruned to be only ant-associated CRESS viruses discovered within this project without bootstrap values. Additionally, each tip was changed to a number in order to be able to associate with the host phylogeny. The number-CRESS virus association is in /Phylogenetics_data/R_data/CRESS_number_associations_cophylo.csv.
 tr2 <- read.tree("CRESS_cophylo.tree")
 #Associations between the CRESS viral phylogeny and the ant host genus phylogeny.
 assoc <- read.csv("CRESS_Ant_associations.csv")
@@ -322,7 +322,7 @@ PACo <- function (H.dist, P.dist, HP.bin)
 # Phylogenetic trees:
 #host ant phylogeny by species (pruned from Nelsen et al. 2018 ant species-level phylogeny)
 TreeH <- read.tree("Ant_host_PACo.tree") 
-#CRESS viral phylogeny pruned to be just ant-associated CRESS viruses discovered within this project.
+#CRESS viral phylogeny pruned to be only ant-associated CRESS viruses discovered within this project.
 TreeP <- read.tree("CRESS_PACo.tree") 
 #Compute patristic distances:
 host.D <- cophenetic (TreeH)
